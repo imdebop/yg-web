@@ -15,10 +15,13 @@ router.get('/testJade', function(req, res, next) {
 //      console.log(keys[i]);
 //    };
 //  };
-  delete require.cache["/home/kukaku1/tmp/yg-web/ygserver/app/kanriDB.js"];
+  var delPath = "/home/" + process.env.USER + "/tmp/yg-web/ygserver/app/kanriDB.js"
+//  console.log( delPath )
+//  delete require.cache["/home/kukaku1/tmp/yg-web/ygserver/app/kanriDB.js"];
+  delete require.cache[ delPath ];
   var obj = require('../app/kanriDB');
-  console.log( obj.aaa )
-  res.render('testJade', { title: obj.wkstr });
+  console.log( obj.aaa('dddd') );
+  res.render('testJade', { title: 'asdfdfdas' });
 });
 
 
