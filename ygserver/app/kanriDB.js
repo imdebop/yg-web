@@ -16,6 +16,8 @@ console.log( db.get('select * from shoyu limit 1;'));
 exports.wkstr = "hea=r";
 exports.mmm = "aa000000000000000000a";
 
-module.exports.aaa = function () {
-  return "method aaa";
-};
+//module.exports.aaa = function () {
+//  return "method aaa";
+//};
+
+module.exports.aaa = "metho aaa called"
