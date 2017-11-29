@@ -9,16 +9,15 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/testJade', function(req, res, next) {
-  console.log(path.resolve('test.js'));
-  var obj = require('../app/test');
-  const keys = Object.keys(require.cache);
-  for (let i = 0; i < keys.length; i++) {
-    if(/test/.exec(keys[i]) ) {
-      console.log(keys[i]);
-    };
-  };
-  delete require.cache[path.resolve('test.js')];
-  var obj = require('../app/test');
+//  const keys = Object.keys(require.cache);
+//  for (let i = 0; i < keys.length; i++) {
+//    if(/test/.exec(keys[i]) ) {
+//      console.log(keys[i]);
+//    };
+//  };
+  delete require.cache["/home/kukaku1/tmp/yg-web/ygserver/app/kanriDB.js"];
+  var obj = require('../app/kanriDB');
+  console.log( obj.aaa )
   res.render('testJade', { title: obj.wkstr });
 });
 

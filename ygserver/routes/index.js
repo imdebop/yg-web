@@ -15,8 +15,9 @@ router.get('/testJade', function(req, res, next) {
 //      console.log(keys[i]);
 //    };
 //  };
-  delete require.cache["/home/kukaku1/tmp/yg-web/ygserver/app/test.js"];
-  var obj = require('../app/test');
+  delete require.cache["/home/kukaku1/tmp/yg-web/ygserver/app/kanriDB.js"];
+  var obj = require('../app/kanriDB');
+  console.log( obj.aaa() )
   res.render('testJade', { title: obj.wkstr });
 });
 
