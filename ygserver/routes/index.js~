@@ -20,7 +20,7 @@ router.get('/testJade', function(req, res, next) {
 //  delete require.cache["/home/kukaku1/tmp/yg-web/ygserver/app/kanriDB.js"];
   delete require.cache[ delPath ];
   var obj = require('../app/kanriDB');
-  console.log( obj.aaa('dddd') );
+  obj.aaa('dddd');
   res.render('testJade', { title: 'asdfdfdas' });
 });
 

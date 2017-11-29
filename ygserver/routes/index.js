@@ -16,8 +16,6 @@ router.get('/testJade', function(req, res, next) {
 //    };
 //  };
   var delPath = "/home/" + process.env.USER + "/tmp/yg-web/ygserver/app/kanriDB.js"
-//  console.log( delPath )
-//  delete require.cache["/home/kukaku1/tmp/yg-web/ygserver/app/kanriDB.js"];
   delete require.cache[ delPath ];
   var obj = require('../app/kanriDB');
   obj.aaa('dddd');
