@@ -1,22 +1,29 @@
-console.log( "*** test.js reloaded." );
+console.log( "*** kanriDB.js は開発中のため毎回読み込まれています." );
 var sqlite3 = require('sqlite3');
 
 var db = new sqlite3.Database("../../kanri.db");
 
-var data;
-var h = [];
-var sreg = /鈴木/;
-db.each("SELECT * from shoyu", function(err, row) {
-  name = row.value.split('|')[1];
-  if(sreg.test(name)) {
-    console.log(name);
-    h.push(row);
-  }
-});
-
 
 module.exports = {
-  aaa: function (s) { console.log(s); }
+  kensaku: function (s) {
+    var data;
+    var h = [];
+   console.log(s)
+    if (s==''){console.log("検索文字がありません。"); return h;}
+
+    var sreg = new RegExp(s);
+    db.each("SELECT * from shoyu", function(err, row) {
+      name = row.value.split('|')[1];
+      if(sreg.test(name)) {
+        console.log(name);
+        h.push(name);
+        console.log(h)
+       
+      };
+    });
+    return h;
+    
+  }
 };
 
 //module.exports.aaa = "metho aaa called"
