@@ -9,14 +9,6 @@ var debug = require('debug')('ygserver:server');
 var http = require('http');
 
 /**
- * 20171130追加
- */
-
-var os = require('os');
-process.env.OS = os.hostname();
-
-
-/**
  * Get port from environment and store in Express.
  */
 
