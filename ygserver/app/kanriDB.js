@@ -5,23 +5,26 @@ var db = new sqlite3.Database("../../kanri.db");
 
 
 module.exports = {
-  kensaku: function (s) {
+  kensaku: function (s,res) {
     var data;
     var h = [];
-   console.log(s)
-    if (s==''){console.log("検索文字がありません。"); return h;}
+   console.log(s);
+    if (s==''){console.log("検索文字がありません。"); return h;};
 
     var sreg = new RegExp(s);
-    db.each("SELECT * from shoyu", function(err, row) {
-      name = row.value.split('|')[1];
-      if(sreg.test(name)) {
-        console.log(name);
-        h.push(name);
-        console.log(h)
+    db.all("SELECT * from shoyu", function(err, rows) {
+      for(var i in rows) {
+        name = rows[i].value.split('|')[1];
+        if(sreg.test(name)) {
+          console.log(name);
+          h.push(name);
        
-      };
+        }
+      }
+      //console.log(h);
+      res.render('testJade', { title: '権利者検索結果', owners: h });
     });
-    return h;
+
     
   }
 };

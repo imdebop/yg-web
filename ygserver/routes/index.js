@@ -22,9 +22,8 @@ router.get('/testJade', function(req, res, next) {
 
   var delPath = "/home/" + process.env.USER + "/tmp/yg-web/ygserver/app/kanriDB.js"
   delete require.cache[ delPath ];
-  var owners = kanriDB.kensaku(owner_search);
-console.log(owners)
-  res.render('testJade', { title: 'asdfdfdas', owners: owners });
+  kanriDB.kensaku(owner_search,res)
+  
 });
 
 
