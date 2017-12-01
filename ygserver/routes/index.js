@@ -26,5 +26,8 @@ router.get('/testJade', function(req, res, next) {
   
 });
 
+router.get('/content_top', function(req, res, next) {
+  res.render('content_top');
+});
 
 module.exports = router;
