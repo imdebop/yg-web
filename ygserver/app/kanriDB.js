@@ -8,6 +8,14 @@ var kan_rows;
 var db = new sqlite3.Database("../../kanri.db");
 db.all("SELECT * from shoyu", function(err, rows) {
   sho_rows = rows; 
+  console.log(rows[100])
+  for(var i in sho_rows) {
+    name = sho_rows[i].value.split('|')[1];
+    if(sreg.test(name)) {
+      console.log(name);
+      h.push(name);
+    }
+  }
 });
 db.all("SELECT * from kumi", function(err, rows) {
   kumi_rows = rows; 
