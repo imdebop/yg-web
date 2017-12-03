@@ -1,4 +1,8 @@
 console.log( "*** kanriDB.js は開発中のため毎回読み込まれています." );
+
+var tbl_yg = require("../app/tbl_yg");
+//console.log(tbl_yg.get_azamei("02"));
+
 var sqlite3 = require('sqlite3');
 var sho_rows;
 var kumi_rows;
@@ -9,13 +13,13 @@ var db = new sqlite3.Database("../../kanri.db");
 db.all("SELECT * from shoyu", function(err, rows) {
   sho_rows = rows; 
   console.log(rows[100])
-  for(var i in sho_rows) {
-    name = sho_rows[i].value.split('|')[1];
-    if(sreg.test(name)) {
-      console.log(name);
-      h.push(name);
-    }
-  }
+//  for(var i in sho_rows) {
+//    name = sho_rows[i].value.split('|')[1];
+//    if(sreg.test(name)) {
+//      console.log(name);
+//      h.push(name);
+//    }
+//  }
 });
 db.all("SELECT * from kumi", function(err, rows) {
   kumi_rows = rows; 
