@@ -21,7 +21,8 @@ nav
         - arr.forEach(dan => {
             li
                 - dan.forEach(str => {
-                    a(href="/sho_kana?owner=#{str}")= str
+                    //-a(href="/sho_kana?owner=#{str}")= str
+                    div.kana= str
                     span= "---"
                 - });
 
