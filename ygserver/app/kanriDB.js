@@ -6,24 +6,40 @@ var tbl_yg = require("../app/tbl_yg");
 var sqlite3 = require('sqlite3');
 var kanDB = require('../app/kanriDB_init');
 var sho_rows;
-var kumi_rows;
-var ju_rows;
-var kan_rows;
+var h_kumi = {};
+var h_juzen = {};
+var h_kanchi = {};
 
 var db = new sqlite3.Database("../../kanri.db");
 db.all("SELECT * from shoyu", function(err, rows) {
   sho_rows = rows; 
+
   db.all("SELECT * from kumi", function(err, rows) {
-    kumi_rows = rows; 
+    rows.forEach(el =>  {
+      h_kumi[ el.id ] = el;
+    });
+    //console.log(h_kumi);
+
     db.all("SELECT * from juzen", function(err, rows) {
-      ju_rows = rows; 
+      rows.forEach(el =>  {
+        h_juzen[ el.id ] = el.value;
+      });
+      //console.log(h_juzen);
+       
       db.all("SELECT * from kanchi", function(err, rows) {
-        kan_rows = rows; 
+        rows.forEach(el =>  {
+          h_kanchi[ el.id ] = el.value;
+        });
+        //console.log(h_kanchi);
+  
       });
     });
   });
 });
 
+
+var juCol = { name: 1, kana: 23
+};
 
 
 module.exports = {
@@ -35,9 +51,9 @@ module.exports = {
     if (s==''){console.log("検索文字がありません。"); return h;};
 
     var sreg = new RegExp(s);
-    var lookCol = 1;
+    var lookCol = juCol.name;
     if (kubun == "kana"){
-      lookCol = 23;
+      lookCol = juCol.kana;
     }
     var tStr;
     var name;
@@ -58,8 +74,15 @@ module.exports = {
       res.render('testJade', { title: '権利者検索結果', owners: h });
   },
 
-  juBySho: function (sho_code,res) {
+  getShoyu: function (sho_code) {
+
+  },
+
+  getKumi: function (sho_code) {
+    
   }
+
+
 };
 
 //module.exports.aaa = "metho aaa called"
