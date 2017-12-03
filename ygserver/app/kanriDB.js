@@ -4,6 +4,7 @@ var tbl_yg = require("../app/tbl_yg");
 //console.log(tbl_yg.get_azamei("02"));
 
 var sqlite3 = require('sqlite3');
+var kanDB = require('../app/kanriDB_init');
 var sho_rows;
 var kumi_rows;
 var ju_rows;
@@ -12,25 +13,16 @@ var kan_rows;
 var db = new sqlite3.Database("../../kanri.db");
 db.all("SELECT * from shoyu", function(err, rows) {
   sho_rows = rows; 
-  console.log(rows[100])
-//  for(var i in sho_rows) {
-//    name = sho_rows[i].value.split('|')[1];
-//    if(sreg.test(name)) {
-//      console.log(name);
-//      h.push(name);
-//    }
-//  }
+  db.all("SELECT * from kumi", function(err, rows) {
+    kumi_rows = rows; 
+    db.all("SELECT * from juzen", function(err, rows) {
+      ju_rows = rows; 
+      db.all("SELECT * from kanchi", function(err, rows) {
+        kan_rows = rows; 
+      });
+    });
+  });
 });
-db.all("SELECT * from kumi", function(err, rows) {
-  kumi_rows = rows; 
-});
-db.all("SELECT * from juzen", function(err, rows) {
-  ju_rows = rows; 
-});
-db.all("SELECT * from kanchi", function(err, rows) {
-  kan_rows = rows; 
-});
-
 
 
 
@@ -50,24 +42,24 @@ module.exports = {
     var tStr;
     var name;
     var wkRow;
+    var sho_code;
     for(var i in sho_rows) {
-        wkRow = sho_rows[i];
+      var wkArr;
+      wkRow = sho_rows[i];
         tStr = wkRow.value.split('|')[lookCol];
         if(sreg.test(tStr)) {
-          name = wkRow.value.split('|')[1];
+          wkArr = wkRow.value.split('|');
+          name = wkArr[1];
+          sho_code = wkArr[0];
           console.log(name);
-          h.push(name);
+          h.push(`${name}(${sho_code})`);
         }
       }
       res.render('testJade', { title: '権利者検索結果', owners: h });
-//    });
+  },
 
-    
+  juBySho: function (sho_code,res) {
   }
-
-//  kumi_get: function(sho_code, func){
-//
-//  }
 };
 
 //module.exports.aaa = "metho aaa called"
