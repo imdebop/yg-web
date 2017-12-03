@@ -7,14 +7,20 @@ form(name="kenri_form" action="/testJade")
         //span.label Description
     
         input(type="submit", value="送信")
+//
+  - arr = [["あ","い","う","え","お"],
+  -    ["か","き","く","け","こ"]];
+  - //    ,["","","","",""],
+
+- arr = [["あ","い","う","え","お"],["か","き","く","け","こ"],["さ","し","す","せ","そ"]];
+
 nav
     ul
-      li
-        - arr = ["あ","い","う","え","佐々木"];
-        - arr.forEach(str => {
-            a(href="/testJade?owner=#{str}")= str
-            span= "---"
-            //  span
-            //   input(type="button" //style="width:20px;hight:20px" //value="#{str}")
-        -});
+        - arr.forEach(dan => {
+            li
+                - dan.forEach(str => {
+                    a(href="/sho_kana?owner=#{str}")= str
+                    span= "---"
+                - });
 
+        - });

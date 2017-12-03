@@ -36,17 +36,25 @@ db.all("SELECT * from kanchi", function(err, rows) {
 
 module.exports = {
 
-  kensaku: function (s,res) {
+  kensaku: function (kubun,s,res) {
     var data;
     var h = [];
    console.log(s);
     if (s==''){console.log("検索文字がありません。"); return h;};
 
     var sreg = new RegExp(s);
-//    db.all("SELECT * from shoyu", function(err, rows) {
-      for(var i in sho_rows) {
-        name = sho_rows[i].value.split('|')[1];
-        if(sreg.test(name)) {
+    var lookCol = 1;
+    if (kubun == "kana"){
+      lookCol = 23;
+    }
+    var tStr;
+    var name;
+    var wkRow;
+    for(var i in sho_rows) {
+        wkRow = sho_rows[i];
+        tStr = wkRow.value.split('|')[lookCol];
+        if(sreg.test(tStr)) {
+          name = wkRow.value.split('|')[1];
           console.log(name);
           h.push(name);
         }
