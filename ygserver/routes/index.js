@@ -21,12 +21,16 @@ router.get('/sho_kensaku', function(req, res, next) {
   
 });
 
-router.get('/sho_kana', function(req, res, next) {
+router.get('/sho_*', function(req, res, next) {
   var url_parts = url.parse(req.url,true);
-  var owner_search = url_parts.query.kana;
-
-  kanriDB.kensaku('kana',owner_search,res)
-  
+  console.log(url_parts.path);
+  if (/sho_kana/.test(url_parts.path)){
+    var owner_search = url_parts.query.kana;
+    kanriDB.kensaku('kana',owner_search,res)
+  }else if(/sho_kumi/.test(url_parts.path)){
+    var owner_search = url_parts.query.owner;
+    kanriDB.getKumi(owner_search,res)
+  }
 });
 
 

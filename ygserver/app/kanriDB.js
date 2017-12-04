@@ -18,7 +18,7 @@ db.all("SELECT * from shoyu", function(err, rows) {
     rows.forEach(el =>  {
       h_kumi[ el.id ] = el;
     });
-    //console.log(h_kumi);
+    console.log(h_kumi);
 
     db.all("SELECT * from juzen", function(err, rows) {
       rows.forEach(el =>  {
@@ -78,8 +78,8 @@ module.exports = {
 
   },
 
-  getKumi: function (sho_code) {
-    return h_kumi[sho_code];
+  getKumi: function (s, res) {
+    console.log( h_kumi[s] );
   }
 
 
