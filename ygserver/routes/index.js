@@ -23,7 +23,7 @@ router.get('/sho_kensaku', function(req, res, next) {
 
 router.get('/sho_kana', function(req, res, next) {
   var url_parts = url.parse(req.url,true);
-  var owner_search = url_parts.query.owner;
+  var owner_search = url_parts.query.kana;
 
   kanriDB.kensaku('kana',owner_search,res)
   
