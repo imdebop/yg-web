@@ -68,7 +68,7 @@ module.exports = {
           name = wkArr[1];
           sho_code = wkArr[0];
           console.log(name);
-          h.push(`${name}(${sho_code})`);
+          h.push({name: name, sho_code:sho_code});
         }
       }
       res.render('sho_kensaku_res', { title: '権利者検索結果', owners: h });
@@ -79,7 +79,7 @@ module.exports = {
   },
 
   getKumi: function (sho_code) {
-    
+    return h_kumi[sho_code];
   }
 
 
