@@ -2,7 +2,7 @@ h5= title
 div#sho_list(style='overflow-y:scroll; height:500px')
   - for (var i = 0; i < owners.length ; i++) {
     - var owner = owners[i];
-    li.shoyusha= owner.name + " : " + owner.sho_code
+    li.shoyusha(sho_code="#{owner.sho_code}")= owner.name + " : " + owner.sho_code
   - }
 p
 a(href="/ygtop.html") 位置図を表示
