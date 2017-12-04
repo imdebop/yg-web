@@ -71,7 +71,7 @@ module.exports = {
           h.push(`${name}(${sho_code})`);
         }
       }
-      res.render('sho_kensaku', { title: '権利者検索結果', owners: h });
+      res.render('sho_kensaku_res', { title: '権利者検索結果', owners: h });
   },
 
   getShoyu: function (sho_code) {

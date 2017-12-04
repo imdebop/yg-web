@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-router.get('/sho_kensaku_res', function(req, res, next) {
+router.get('/sho_kensaku', function(req, res, next) {
   //氏名を検索
   var url_parts = url.parse(req.url,true);
   var owner_search = url_parts.query.owner;
