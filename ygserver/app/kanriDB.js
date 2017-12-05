@@ -56,7 +56,7 @@ db.all("SELECT * from shoyu", function(err, rows) {
 
 var juCol = { name: 1, kana: 23
 };
-
+var kensakuEdit = require('../app/kensaku_edit');
 
 module.exports = {
 
@@ -87,6 +87,8 @@ module.exports = {
           h.push({name: name, sho_code:sho_code});
         }
       }
+      kensakuEdit.toTable(h)
+
       res.render('sho_kensaku_res', { title: '権利者検索結果', owners: h });
   },
 
