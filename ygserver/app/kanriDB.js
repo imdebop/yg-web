@@ -15,10 +15,26 @@ db.all("SELECT * from shoyu", function(err, rows) {
   sho_rows = rows; 
 
   db.all("SELECT * from kumi", function(err, rows) {
-    rows.forEach(el =>  {
-      h_kumi[ el.id ] = el;
+    var sho_code;
+    var wkKeys = [];
+    var wk_h = {};
+    rows.forEach(el =>{
+      wkKeys.push(el.id);
+      wk_h[el.id] = el;
+      });
+    var sortKeys = wkKeys.sort();
+    var data;
+    sortKeys.forEach(key =>  {
+      data = wk_h[key];
+      sho_code = key.slice(0,4);
+      if(!h_kumi[sho_code]){
+        h_kumi[ sho_code ] = [ data ];
+      }else{
+        h_kumi[ sho_code ].push( data );
+      }
     });
-    console.log(h_kumi);
+    //console.log(h_kumi);
+
 
     db.all("SELECT * from juzen", function(err, rows) {
       rows.forEach(el =>  {
@@ -75,11 +91,14 @@ module.exports = {
   },
 
   getShoyu: function (sho_code) {
-
+    console.log("getShoyu called")
   },
 
   getKumi: function (s, res) {
     console.log( h_kumi[s] );
+    this.getShoyu(s);
+    res.render('sho_nayose', { title: '名寄せ一覧' });
+    
   }
 
 
