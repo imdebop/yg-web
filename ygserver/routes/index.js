@@ -26,10 +26,13 @@ router.get('/sho_*', function(req, res, next) {
   console.log(url_parts.path);
   if (/sho_kana/.test(url_parts.path)){
     var owner_search = url_parts.query.kana;
-    kanriDB.kensaku('kana',owner_search,res)
+    kanriDB.kensaku('kana',owner_search,res);
+  }else if(/sho_kanji/.test(url_parts.path)){
+    var kanji = url_parts.query.s_kanji;
+    kanriDB.kensaku('kanji',kanji,res);
   }else if(/sho_kumi/.test(url_parts.path)){
     var owner = url_parts.query.owner;
-    kanriDB.getKumi(owner,res)
+    kanriDB.getKumi(owner,res);
   }
 });
 
