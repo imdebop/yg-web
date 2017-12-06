@@ -83,13 +83,13 @@ module.exports = {
           wkArr = wkRow.value.split('|');
           name = wkArr[1];
           sho_code = wkArr[0];
-          console.log(name);
+          //console.log(name);
           h.push({name: name, sho_code:sho_code});
         }
       }
-      kensakuEdit.toTable(h)
+      var tbl = kensakuEdit.toTable(h)
 
-      res.render('sho_kensaku_res', { title: '権利者検索結果', owners: h });
+      res.render('sho_kensaku_res', { title: '権利者検索結果', owners: h, tbl: tbl });
   },
 
   getShoyu: function (sho_code) {

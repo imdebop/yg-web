@@ -2,7 +2,23 @@ h5= title
 div#sho_list(style='overflow-y:scroll; height:500px')
   - for (var i = 0; i < owners.length ; i++) {
     - var owner = owners[i];
-    li.shoyusha(sho_code="#{owner.sho_code}")= owner.name + " : " + owner.sho_code
+    //li.shoyusha(sho_code="#{owner.sho_code}")= owner.name + " : " + owner.sho_code
   - }
+  table
+     tbody
+       tr
+         td(colspan='3') table test
+        -var noData = {name:"", sho_code:""} 
+        - for (i = 0; i < tbl.length; i++){
+          - data = tbl[i];
+          - //console.log(data);
+          - if(data[1] == 0){data[1] = data[2] = noData;}
+          - if(data[2] == 0){data[2] = noData;}
+        tr
+         td= data[0].name + ":" + data[0].sho_code
+         td= data[1].name + ":" + data[1].sho_code
+         td= data[2].name + ":" + data[2].sho_code
+        - }
+
 p
 a(href="/ygtop.html") 位置図を表示
