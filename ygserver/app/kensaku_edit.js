@@ -7,14 +7,16 @@ module.exports = {
         var num = owners.length; 
         var rem;
         var rows;
-        if ( num > 45){
+        if ( num > row_max * 3){
             rem = num % 3;
             rows = (num - rem) / 3 + 1;
-        }else if(num < row_max){
+        }else if(num < row_max + 1){
             rows = num;
         }else{
             rows = row_max;
         }
+        console.log("num=" + num);
+        console.log("rows=" + rows);
         
         var tblData=[];
         for(let i = 0; i < rows; i++){
