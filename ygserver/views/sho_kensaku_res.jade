@@ -15,9 +15,12 @@ div#sho_list(style='overflow-y:scroll; height:500px')
           - if(data[1] == 0){data[1] = data[2] = noData;}
           - if(data[2] == 0){data[2] = noData;}
         tr
-         td.tbl= data[0].name + " : " + data[0].sho_code
-         td.tbl= data[1].name + " : " + data[1].sho_code
-         td.tbl= data[2].name + " : " + data[2].sho_code
+         td.tbl
+          a(href="#")= data[0].name + " : " + data[0].sho_code
+         td.tbl
+          a(href="#")= data[1].name + " : " + data[1].sho_code
+         td.tbl
+          a(href="#")= data[2].name + " : " + data[2].sho_code
         - }
 
 p

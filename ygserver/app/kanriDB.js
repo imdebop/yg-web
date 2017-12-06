@@ -57,6 +57,7 @@ db.all("SELECT * from shoyu", function(err, rows) {
 var juCol = { name: 1, kana: 23
 };
 var kensakuEdit = require('../app/kensaku_edit');
+var kumiEdit = require("../app/kumi_edit");
 
 module.exports = {
 
@@ -97,7 +98,9 @@ module.exports = {
   },
 
   getKumi: function (s, res) {
-    console.log( h_kumi[s] );
+    //console.log( h_kumi[s] );
+
+    kumiEdit.toTable(s, h_kumi[s]);
     this.getShoyu(s);
     res.render('sho_nayose', { title: '名寄せ一覧' });
     

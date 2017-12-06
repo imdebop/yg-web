@@ -28,8 +28,8 @@ router.get('/sho_*', function(req, res, next) {
     var owner_search = url_parts.query.kana;
     kanriDB.kensaku('kana',owner_search,res)
   }else if(/sho_kumi/.test(url_parts.path)){
-    var owner_search = url_parts.query.owner;
-    kanriDB.getKumi(owner_search,res)
+    var owner = url_parts.query.owner;
+    kanriDB.getKumi(owner,res)
   }
 });
 
