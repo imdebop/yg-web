@@ -100,9 +100,9 @@ module.exports = {
   getKumi: function (s, res) {
     //console.log( h_kumi[s] );
 
-    kumiEdit.toTable(s, h_kumi[s]);
+    var tblBox = kumiEdit.toTable(s, h_kumi[s]);
     this.getShoyu(s);
-    res.render('sho_nayose', { title: '名寄せ一覧' });
+    res.render('sho_nayose', { title: '名寄せ一覧', tblBox: tblBox });
     
   }
 

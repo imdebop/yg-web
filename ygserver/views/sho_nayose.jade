@@ -7,11 +7,20 @@ div(style='overflow-y:scroll; height:500px')
   table
     tbody
       tr
-        td(colspan='3') table test
-      tr
-        td column1
-        td colmun2
-        td colmun3
-        td colmun4
+        td(colspan='2') table test
+      - var n = tblBox.length;
+      - console.log(tblBox);
+      - for(i=0; i < n ; i++){
+        - var rec = tblBox[i];
+        tr
+          - var recJ = rec[0];
+          - var nJ = recJ.length;
+          - for(j=0; j < nJ; j++){
+              tr
+                td= recJ[i]
+          - }
+              tr(rowspan="#{n}")
+                td= rec[1]
+      - }
 p
 a(href="/ygtop.html") 位置図を表示
