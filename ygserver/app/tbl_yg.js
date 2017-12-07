@@ -20,6 +20,7 @@ res.forEach(el => {
 
 
 module.exports = {
+    //hash data = { AZA_01: '牟呂町字大塚' .....
     get_azamei: function (cd) {
         var id = "AZA_";
         var val = tbl_yg[id + cd];

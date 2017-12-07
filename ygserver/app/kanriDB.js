@@ -5,14 +5,19 @@ var tbl_yg = require("../app/tbl_yg");
 
 var sqlite3 = require('sqlite3');
 var kanDB = require('../app/kanriDB_init');
-var sho_rows;
+var h_sho ={};
 var h_kumi = {};
 var h_juzen = {};
 var h_kanchi = {};
+var sho_rows;
 
 var db = new sqlite3.Database("../../kanri.db");
 db.all("SELECT * from shoyu", function(err, rows) {
-  sho_rows = rows; 
+  //console.log(rows[0]);
+  sho_rows = rows;
+  rows.forEach(el =>{
+    h_sho[el.id] = el.value;
+  });
 
   db.all("SELECT * from kumi", function(err, rows) {
     var sho_code;
@@ -58,6 +63,8 @@ var juCol = { name: 1, kana: 23
 };
 var kensakuEdit = require('../app/kensaku_edit');
 var kumiEdit = require("../app/kumi_edit");
+var shoEdit = require('../app/sho_edit');
+var juzenEdit = require('../app/juzen_edit');
 
 module.exports = {
 
@@ -94,17 +101,23 @@ module.exports = {
   },
 
   getShoyu: function (sho_code) {
-    console.log("getShoyu called")
+    return rec = shoEdit.get(h_sho, sho_code);
+    //console.log(rec);
   },
 
   getKumi: function (s, res) {
     //console.log( h_kumi[s] );
 
-    var tblBox = kumiEdit.toTable(s, h_kumi[s]);
-    this.getShoyu(s);
-    res.render('sho_nayose', { title: '名寄せ一覧', tblBox: tblBox });
+    var tblBox = kumiEdit.toTable(s, h_kumi[s], h_juzen);
+    var shoRec = this.getShoyu(s);
+    res.render('sho_nayose', { title: '名寄せ一覧', name: shoRec.name, tblBox: tblBox });
     
-  }
+  },
+
+  getJuzen: function (fude_code) {
+    return rec = juzenEdit.get(h_juzen, fude_code);
+    //console.log(rec);
+  },
 
 
 };

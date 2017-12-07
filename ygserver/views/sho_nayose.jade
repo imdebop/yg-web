@@ -7,20 +7,25 @@ div(style='overflow-y:scroll; height:500px')
   table
     tbody
       tr
-        td(colspan='2') table test
+        td.tbl_nayose(colspan='2')= name
       - var n = tblBox.length;
-      - console.log(tblBox);
+      //- console.log(tblBox);
       - for(i=0; i < n ; i++){
         - var rec = tblBox[i];
+        - console.log(rec);
+        - var nJu  = rec[0].length;
+        - var nKan = rec[1].length;
         tr
-          - var recJ = rec[0];
-          - var nJ = recJ.length;
-          - for(j=0; j < nJ; j++){
-              tr
-                td= recJ[i]
-          - }
-              tr(rowspan="#{n}")
-                td= rec[1]
+          td.tbl_nayose(rowspan="#{nKan}")= rec[0][0]
+          td.tbl_nayose(rowspan="#{nJu}")= rec[1][0]
+        - for(j=1; j < nJu; j++){
+        tr
+          td.tbl_nayose= rec[0][j]
+        - }
+        - for(j=1; j < nKan; j++){
+        tr
+          td.tbl_nayose= rec[1][j]
+        - }
       - }
 p
 a(href="/ygtop.html") 位置図を表示
