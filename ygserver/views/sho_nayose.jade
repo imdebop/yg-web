@@ -17,11 +17,12 @@ div(style='overflow-y:scroll; height:500px')
         - var nKan = rec[1].length;
         - var hrec = rec[1][0];
         - var bk = hrec.kan_code.slice(0,2);
-
+        - var ichiStr = "/images/kasane/kasane"
         tr
           td.tbl_nayose(rowspan="#{nKan}")= rec[0][0]
           td.tbl_nayose(rowspan="#{nJu}")= rec[1][0].nayo
-            a(href="#") &lt; 位置図 &gt;
+            - let str = ichiStr + bk + ".pdf";
+            a(href="#{str}" target="_blank") &lt; 位置図 &gt;
 
         - for(let j=1; j < nJu; j++){
         tr
@@ -29,11 +30,12 @@ div(style='overflow-y:scroll; height:500px')
         - }
         - for(let j=1; j < nKan; j++){
         tr
-          td.tbl_nayose
+          td.tbl_nayose= rec[1][j].nayo
             - hrec = rec[1][j];
             - bk = hrec.kan_code.slice(0,2);
-            - console.log(bk);
-            a(href="#")= rec[1][j].nayo
+            - str = ichiStr + bk + ".pdf";
+            a(href="#{str}" target="_blank") &lt; 位置図 &gt;
+
         - }
       - }
 p
