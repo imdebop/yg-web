@@ -7,6 +7,7 @@ module.exports = {
             console.log("換地コードの長さが不正です");
         }
         //console.log(kan_code);
+        let 
     }
 }
 
