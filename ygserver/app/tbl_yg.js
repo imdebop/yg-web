@@ -16,7 +16,7 @@ res.forEach(el => {
     var azamei = el[3];
     tbl_yg[id + "_" + cd] = azamei;
 });
-   //console.log(tbl_yg)
+   //console.log(tbl_yg);
 
 
 module.exports = {

@@ -3,9 +3,10 @@ var ygTbl = require('../app/tbl_yg');
 module.exports = {
     get: function(h_juzen, fude_code){
         var arr = h_juzen[fude_code].split('|');
-        console.log(arr);
+        //console.log(arr);
         var rec = {
             choCD: arr[1],
+            azamei: "",  // edit later
             chiban: arr[2],
             chimoku: arr[6],
             tokiS: arr[7],

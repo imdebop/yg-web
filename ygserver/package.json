@@ -15,6 +15,7 @@
     "jade": "~1.11.0",
     "morgan": "~1.9.0",
     "serve-favicon": "~2.4.5",
+    "sprintf": "^0.1.5",
     "sqlite3": "^3.1.13"
   }
 }
