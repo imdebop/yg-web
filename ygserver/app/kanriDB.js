@@ -9,6 +9,7 @@ var h_sho ={};
 var h_kumi = {};
 var h_juzen = {};
 var h_kanchi = {};
+var h_kan2kumi = {};
 var sho_rows;
 
 var db = new sqlite3.Database("../../kanri.db");
@@ -21,6 +22,7 @@ db.all("SELECT * from shoyu", function(err, rows) {
 
   db.all("SELECT * from kumi", function(err, rows) {
     var sho_code;
+    var ren;
     var wkKeys = [];
     var wk_h = {};
     rows.forEach(el =>{
@@ -32,14 +34,20 @@ db.all("SELECT * from shoyu", function(err, rows) {
     sortKeys.forEach(key =>  {
       data = wk_h[key];
       sho_code = key.slice(0,4);
+      ren      = key.slice(4);
       if(!h_kumi[sho_code]){
         h_kumi[ sho_code ] = [ data ];
       }else{
         h_kumi[ sho_code ].push( data );
       }
+      let kanchis = data.kanchi.split('|');
+      kanchis.forEach(kanCD => {
+        h_kan2kumi[kanCD] = sho_code + "|" + ren;
+      });
     });
     //console.log(h_kumi);
-
+    //console.log(h_kan2kumi);
+    
 
     db.all("SELECT * from juzen", function(err, rows) {
       rows.forEach(el =>  {

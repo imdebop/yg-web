@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+sprintf = require('sprintf').sprintf;
+vsprintf = require('sprintf').vsprintf;
 
 /**
  * Module dependencies.

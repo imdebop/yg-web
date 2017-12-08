@@ -25,12 +25,13 @@ module.exports = {
                 lands[i] = land;
             }
             for(let i=0; i<kanchis.length; i++){
-                let rec = kanchiEdit.get(h_kanchi, kanchis[i]);
-                
+                let hRec = kanchiEdit.get(h_kanchi, kanchis[i]);
+                kanchis[i] = hRec;
             }
+            //console.log(kanchis);
             tblBox.push([lands, kanchis]);
         });
+        //console.log(tblBox[0][1][0].nayo);
         return tblBox;
-        //console.log(tblBox);
     }
 }
