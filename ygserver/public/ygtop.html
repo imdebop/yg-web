@@ -1,1 +1,131 @@
-../../../nwjs-v0.26.6-win-x64/NWprj_sample/Line-based positioning.html
+<!DOCTYPE html>
+<!-- saved from url=(0053)https://gridbyexample.com/examples/code/layout9.html# -->
+<html lang="en"><head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <!--
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    -->
+
+  <title>柳生川土地区画整理組合</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="./css/general.css" rel="stylesheet" type="text/css">
+
+  <!-- CSS - using the Skeleton framework for typography -->
+  <link rel="stylesheet" href="./css/normalize.css">
+  <link rel="stylesheet" href="./css/skeleton.css">
+
+  <link rel="stylesheet" href="./css/common2.css">
+  <link rel="stylesheet" href="./css/radio.css">
+  <script type="text/javascript" src="./scripts/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="./scripts/kenri.js"></script>
+  <style>
+   input[ type=radio ] { display: none; }
+   .label { width: 50px;
+            margin: 5px;
+            border: 1px solid #006DD9;
+            white-space: nowrap;
+          }
+   .menuContainer {
+    white-space: nowrap;
+    }
+
+
+  .wrapper {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-row-gap: 10px;
+  }
+
+
+  @media (min-width: 550px) {
+
+    .wrapper {
+      grid-template-columns: 1fr 3fr;
+      grid-column-gap: 2em;
+      grid-row-gap: 20px;
+    }
+
+    .mainheader {
+      grid-column: 1 / 4;
+      grid-row: 1 / 2;
+    }
+    .menuHeader {
+      grid-column: 1 / 4;
+      grid-row: 2 / 3;
+    }
+
+    .panel {
+      grid-column: 1 / 2;
+      grid-row: 3 / 4;
+    }
+
+    .content {
+      grid-column: 2 / 3;
+      grid-row: 3 / 4;
+    }
+
+    .mainfooter {
+      grid-column: 1 / 4;
+      grid-row: 4 / 5;
+    }
+  }
+
+  </style>
+
+</head>
+<body>
+
+  <div class="wrapper">
+
+    <header class="mainheader">
+      <h3><font size="5">柳生川南部土地区画整理 </font>　　　　　業務システム　　<font size="5">～～サンプル～～</font></h3>
+    </header>
+      <div class="sample menuHeader" id="menu-select">
+        <input name="s3" id="memuKenri" value="1" checked="" type="radio">
+        <label for="memuKenri">権利者情報</label>
+        <input name="s3" id="menuKanchi" value="2" type="radio">
+        <label for="menuKanchi">換地情報</label>
+        <input name="s3" id="menuHoryu" value="3" type="radio">
+        <label for="menuHoryu">保留地情報</label>
+        <input name="s3" id="menuZumen" value="4" type="radio">
+        <label for="menuZumen">図面関連</label>
+        <input name="s3" id="menuKanri" value="5" type="radio">
+        <label for="menuKanri">管理</label>
+      </div>
+
+
+
+    <div class="panel" id="opPanel">
+        <h5>作業メニュー</h5>
+        <ul>
+          <li><a class="button" href="#"><h5>権利者情報</h5></a></li>
+          <li><a class="button" href="#"><h5>保留地情報</h5></a></li>
+          <li><a class="button" href="#"><h5>７６条関係</h5></a></li>
+          <li><a class="button" href="#"><h5>重ね図</h5></a></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+    </div>
+
+    <div id="content" >
+        <img border="1" src="images/ichizu.jpg" width="100%" height="90%" alt="area-map" title="area-map">
+
+
+    </div>
+
+    <footer class="mainfooter">
+      <p>柳生川南部土地区画整理組合<a href="/位置図.pdf" target="_blank">the Project Gutenburg website</a>.</p>
+    </footer>
+  </div>
+
+  <script src="./scripts/init.js"></script>
+
+
+</body></html>
