@@ -1,11 +1,11 @@
-h5= title
+h5= "[  " + tbl[0].bk + " ブロック] " + title 
 div(style='overflow-y:scroll; height:500px')
   table
     tbody
-      tr
         - for(let i=0; i<tbl.length; i++ ){
         -   let rec = tbl[i];
-          td= rec.bk_lot + ":" + rec.men + ":" + rec.name 
+          tr
+            td= rec.lotEd + " ロット:" + rec.men + "㎡:" + rec.name 
         - }
 
 

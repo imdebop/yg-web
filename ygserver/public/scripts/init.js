@@ -53,7 +53,7 @@ $(function(){
     $('#menuKanchi').on('click',function(){
         $('#opPanel').load('panel_kanchi',function(e){
             $('#gaiku_list').on('click','.gaiku', function ($this){
-                console.log($this)
+                //console.log($this)
                 s_text = $this.target.innerText;
                 gaiku_sub(s_text);
             });
@@ -64,7 +64,7 @@ $(function(){
     var gaiku_sub = function(s_text){
         $('#content').load('./kanchi_list?gaiku=' + s_text);
         
-        console.log(s_text);
+        //console.log(s_text);
     }
 
 });
