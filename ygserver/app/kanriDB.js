@@ -128,7 +128,12 @@ module.exports = {
     //console.log(rec);
   },
 
+  kanchi_list: function(gaiku, res){
+    //console.log(h_kanchi);
+    var tblKanByBlock = kanchiEdit.getByBlock(h_kanchi, gaiku);
+    console.log(tblKanByBlock);
 
+  }
 };
 
 //module.exports.aaa = "metho aaa called"

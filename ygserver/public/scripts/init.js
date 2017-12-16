@@ -62,7 +62,7 @@ $(function(){
     });
 
     var gaiku_sub = function(s_text){
-//-        $('#content').load('./sho_kumi?owner=' + s_text);
+        $('#content').load('./kanchi_list?gaiku=' + s_text);
         
         console.log(s_text);
     }

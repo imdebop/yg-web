@@ -47,4 +47,12 @@ router.get('/panel_*', function(req, res, next) {
   res.render(req.url.replace("/",""));
 });
 
+router.get('/kanchi_list', function(req, res, next) {
+  console.log(req.url);
+  var url_parts = url.parse(req.url,true);
+  var gaiku = url_parts.query.gaiku;
+  //console.log(gaiku); 
+  kanriDB.kanchi_list(gaiku,res);
+});
+
 module.exports = router;

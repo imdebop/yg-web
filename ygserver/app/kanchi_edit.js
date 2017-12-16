@@ -20,6 +20,33 @@ module.exports = {
         
         //console.log(hRec);
         return hRec;
+    },
+
+    getByBlock: function(h_kanchi, gaiku){
+        var async = require('async');
+        let gaikuCD = sprintf('%1$02d',Number(gaiku));
+        let tblKanByBlock = [];
+        let keys = Object.keys( h_kanchi );
+
+        let kanchis = keys.filter(function(el){
+            elGaiku = el.substr(0,2);
+            if(gaikuCD === elGaiku){
+                return true;
+            }
+        });
+
+        async.each(kanchis.sort, function(key, callback){
+            // 処理1
+            callback();
+
+        }, function(err){
+            //処理2
+            if(err) throw err;
+
+        });
+
+        return tblKanByBlock = kanchis;
+
     }
 }
 
