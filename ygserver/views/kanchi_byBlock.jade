@@ -1,0 +1,13 @@
+h5= title
+div(style='overflow-y:scroll; height:500px')
+  table
+    tbody
+      tr
+        - for(let i=0; i<tbl.length; i++ ){
+        -   let rec = tbl[i];
+          td= rec.bk_lot + ":" + rec.men + ":" + rec.name 
+        - }
+
+
+p
+a(href="/ygtop.html") 位置図を表示

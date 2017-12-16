@@ -1,3 +1,5 @@
+var async = require('async');
+
 console.log( "*** kanriDB.js は開発中のため毎回読み込まれています." );
 
 var tbl_yg = require("../app/tbl_yg");
@@ -130,8 +132,16 @@ module.exports = {
 
   kanchisByBlock: function(gaiku, res){
     //console.log(h_kanchi);
+    let name;
     var tblKanByBlock = kanchiEdit.getByBlock(h_kanchi, gaiku);
-    console.log(tblKanByBlock);
+    async.each(tblKanByBlock, function(h,callback){
+      name = module.exports.getShoyu(h.sho_code).name;
+      //console.log(name);
+      h.name = name;
+    });
+    res.render('kanchi_byBlock', { title: '街区別換地一覧', tbl: tblKanByBlock });
+
+    //console.log(tblKanByBlock);
 
   }
 };
