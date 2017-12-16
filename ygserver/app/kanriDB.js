@@ -128,7 +128,7 @@ module.exports = {
     //console.log(rec);
   },
 
-  kanchi_list: function(gaiku, res){
+  kanchisByBlock: function(gaiku, res){
     //console.log(h_kanchi);
     var tblKanByBlock = kanchiEdit.getByBlock(h_kanchi, gaiku);
     console.log(tblKanByBlock);

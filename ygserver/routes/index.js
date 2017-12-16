@@ -52,7 +52,7 @@ router.get('/kanchi_list', function(req, res, next) {
   var url_parts = url.parse(req.url,true);
   var gaiku = url_parts.query.gaiku;
   //console.log(gaiku); 
-  kanriDB.kanchi_list(gaiku,res);
+  kanriDB.kanchisByBlock(gaiku,res);
 });
 
 module.exports = router;

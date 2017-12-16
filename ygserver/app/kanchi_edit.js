@@ -10,13 +10,21 @@ module.exports = {
         let bk = kan_code.substr(0,2);
         let lot = kan_code.substr(2,3);
         let eda = kan_code.substr(5,2);
-        let nayo = sprintf('%1$2d ブロック    %2$2d',
+        let bk_lot = sprintf('%1$2d ブロック    %2$2d',
          Number(bk), Number(lot));
         if(!Number(eda)==0){
-            nayo += sprintf('%1$2d',Number(eda))
+            bk_lot += sprintf('%1$2d',Number(eda))
         }
-        nayo += " ロット";
-        let hRec = {kan_code: kan_code, nayo: nayo};
+        bk_lot += " ロット";
+        let kanRec = h_kanchi[kan_code].split("|");
+        let men = kanRec[3];
+        let sho_code = kanRec[4];
+        let hRec = {
+            kan_code: kan_code,
+            bk_lot: bk_lot,
+            men: men,
+            sho_code: sho_code,
+            };
         
         //console.log(hRec);
         return hRec;
@@ -35,17 +43,20 @@ module.exports = {
             }
         });
 
-        async.each(kanchis.sort, function(key, callback){
-            // 処理1
+        async.each(kanchis.sort(), function(key, callback){
+            //console.log(module.exports.get);
+            let hRec = module.exports.get(h_kanchi, key);
+            let h = {
+                kan_code: key,
+                bk_lot: hRec.bk_lot,
+                men: hRec.men,
+                sho_code: hRec.sho_code,
+            }
+            tblKanByBlock.push(h);
             callback();
-
-        }, function(err){
-            //処理2
-            if(err) throw err;
-
         });
 
-        return tblKanByBlock = kanchis;
+        return tblKanByBlock = tblKanByBlock;
 
     }
 }
