@@ -81,9 +81,9 @@ module.exports = {
 
   kensaku: function (kubun,s,res) {
     var data;
-    var h = [];
+    var arr = [];
    console.log(s);
-    if (s==''){console.log("検索文字がありません。"); return h;};
+    if (s==''){console.log("検索文字がありません。"); return arr;};
 
     var sreg = new RegExp(s);
     var lookCol = juCol.name;
@@ -103,12 +103,12 @@ module.exports = {
           name = wkArr[1];
           sho_code = wkArr[0];
           //console.log(name);
-          h.push({name: name, sho_code:sho_code});
+          arr.push({name: name, sho_code:sho_code});
         }
       }
-      var tbl = kensakuEdit.toTable(h)
+      var tbl = kensakuEdit.toTable(arr)
 
-      res.render('sho_kensaku_res', { title: '権利者検索結果', owners: h, tbl: tbl });
+      res.render('sho_kensaku_res', { title: '権利者検索結果', owners: arr, tbl: tbl });
   },
 
   getShoyu: function (sho_code) {

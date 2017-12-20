@@ -1,10 +1,10 @@
 
 
 module.exports = {
-    toTable: function(owners){
+    toTable: function(arrData){
         var row_max = 8;
-        //console.log(owners.length)
-        var num = owners.length; 
+        //console.log(arrData.length)
+        var num = arrData.length; 
         var rem;
         var rows;
         if ( num > row_max * 3){
@@ -22,12 +22,12 @@ module.exports = {
         for(let i = 0; i < rows; i++){
             tblData.push([ 0, 0, 0]);
         }
-        //console.log(owners[0]);
+        //console.log(arrData[0]);
 
         for(let i = 0; i < num; i++){
             let col = Math.floor(i / rows);
             let row = i % rows;
-            tblData[row][col] = owners[i];
+            tblData[row][col] = arrData[i];
         }
         //console.log(tblData);
         return tblData;
