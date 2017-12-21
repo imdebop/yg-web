@@ -6,13 +6,13 @@ var tbl_yg = require("../app/tbl_yg");
 //console.log(tbl_yg.get_azamei("02"));
 
 var sqlite3 = require('sqlite3');
-var kanDB = require('../app/kanriDB_init');
+//var kanDB = require('../app/kanriDB_init');
 var h_sho ={};
 var h_kumi = {};
 var h_juzen = {};
 var h_kanchi = {};
 var h_kan2kumi = {};
-var sho_rows;
+var sho_rows = "sho_rows_ini";
 
 var db = new sqlite3.Database("../../kanri.db");
 db.all("SELECT * from shoyu", function(err, rows) {
@@ -68,48 +68,20 @@ db.all("SELECT * from shoyu", function(err, rows) {
   });
 });
 
-
-var juCol = { name: 1, kana: 23
-};
-var kensakuEdit = require('../app/kensaku_edit');
-var kumiEdit = require("../app/kumi_edit");
-var shoEdit = require('../app/sho_edit');
-var juzenEdit = require('../app/juzen_edit');
-var kanchiEdit = require('../app/kanchi_edit');
+var juCol = { name: 1, kana: 23 };
+//var kensakuEdit = require('../app/kensaku_edit');
+//var kumiEdit = require("../app/kumi_edit");
+//var shoEdit = require('../app/sho_edit');
+//var juzenEdit = require('../app/juzen_edit');
+//var kanchiEdit = require('../app/kanchi_edit');
 
 module.exports = {
-
-  kensaku: function (kubun,s,res) {
-    var data;
-    var arr = [];
-   console.log(s);
-    if (s==''){console.log("検索文字がありません。"); return arr;};
-
-    var sreg = new RegExp(s);
-    var lookCol = juCol.name;
-    if (kubun == "kana"){
-      lookCol = juCol.kana;
-    }
-    var tStr;
-    var name;
-    var wkRow;
-    var sho_code;
-    for(var i in sho_rows) {
-      var wkArr;
-      wkRow = sho_rows[i];
-        tStr = wkRow.value.split('|')[lookCol];
-        if(sreg.test(tStr)) {
-          wkArr = wkRow.value.split('|');
-          name = wkArr[1];
-          sho_code = wkArr[0];
-          //console.log(name);
-          arr.push({name: name, sho_code:sho_code});
-        }
-      }
-      var tbl = kensakuEdit.toTable(arr)
-
-      res.render('sho_kensaku_res', { title: '権利者検索結果', owners: arr, tbl: tbl });
+  h_kanchi: h_kanchi,
+  h_sho: h_sho,
+  sho_rows: function(){
+    return sho_rows;
   },
+
 
   getShoyu: function (sho_code) {
     return rec = shoEdit.get(h_sho, sho_code);
@@ -130,20 +102,7 @@ module.exports = {
     //console.log(rec);
   },
 
-  kanchisByBlock: function(gaiku, res){
-    //console.log(h_kanchi);
-    let name;
-    var tblKanByBlock = kanchiEdit.getByBlock(h_kanchi, gaiku);
-    async.each(tblKanByBlock, function(h,callback){
-      name = module.exports.getShoyu(h.sho_code).name;
-      //console.log(name);
-      h.name = name;
-    });
-    res.render('kanchi_byBlock', { title: '街区別換地一覧', tbl: tblKanByBlock });
 
-    //console.log(tblKanByBlock);
-
-  }
 };
 
 //module.exports.aaa = "metho aaa called"
