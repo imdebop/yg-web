@@ -82,10 +82,8 @@ module.exports = {
     return sho_rows;
   },
 
-
-  getShoyu: function (sho_code) {
-    return rec = shoEdit.get(h_sho, sho_code);
-    //console.log(rec);
+  h_juzen: function(){
+    return h_juzen;
   },
 
   getKumi: function (s, res) {
