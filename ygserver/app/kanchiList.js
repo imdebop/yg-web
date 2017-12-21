@@ -1,6 +1,9 @@
 var kanriDB = require('../app/kanriDB');
 var kanchi_edit = require('../app/kanchi_edit');
+var shoList = require('../app/shoList');
+
 var h_kanchi = kanriDB.h_kanchi;
+//console.log(h_kanchi);
 
 module.exports = {
 
@@ -10,6 +13,7 @@ module.exports = {
         let tblKanByBlock = [];
 //        let h_kanchi = kanriDB.h_kanchi;
         let keys = Object.keys( h_kanchi );
+        //console.log(keys);
 
         let kanchis = keys.filter(function(el){
             elGaiku = el.substr(0,2);
@@ -17,7 +21,7 @@ module.exports = {
                 return true;
             }
         });
-
+        
         async.each(kanchis.sort(), function(key, callback){
             //console.log(module.exports.get);
             let hRec = kanchi_edit.get(h_kanchi, key);
@@ -33,7 +37,7 @@ module.exports = {
 
         let name;
         async.each(tblKanByBlock, function(h,callback){
-            name = kanriDB.getShoyu(h.sho_code).name;
+            name = shoList.getOne(h.sho_code).name;
             //console.log(name);
             h.name = name;
           });

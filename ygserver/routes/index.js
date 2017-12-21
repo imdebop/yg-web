@@ -3,7 +3,7 @@ var router = express.Router();
 var path = require('path');
 var url = require('url');
 var kanriDB = require('../app/kanriDB');
-var kanchiList = require('../app/kanchiList');
+//var kanchiList = require('../app/kanchiList');
 //var shoList = require('../app/shoList');
 
 /* GET home page. */
@@ -52,12 +52,14 @@ router.get('/panel_*', function(req, res, next) {
 });
 
 router.get('/kanchi_list', function(req, res, next) {
-  console.log(req.url);
+  var kanchiList = require('../app/kanchiList');
+  //console.log(req.url);
   var url_parts = url.parse(req.url,true);
   var gaiku = url_parts.query.gaiku;
   //console.log(gaiku); 
   kanchiList.getByBlock(gaiku,res);
   //kanriDB.kanchisByBlock(gaiku,res);
+
 });
 
 module.exports = router;

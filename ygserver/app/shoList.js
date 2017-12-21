@@ -1,5 +1,7 @@
 var kanriDB = require('../app/kanriDB');
 var kensakuEdit = require('../app/kensaku_edit');
+var shoEdit = require('../app/sho_edit');
+
 var sho_rows = kanriDB.sho_rows();
 var juCol = { name: 1, kana: 23 };
 //console.log(sho_rows);
@@ -34,6 +36,12 @@ module.exports = {
           var tbl = kensakuEdit.toTable(arr)
     
           res.render('sho_kensaku_res', { title: '権利者検索結果', owners: arr, tbl: tbl });
+      },
+ 
+      getOne: function (sho_code) {
+        //console.log(sho_code);
+        return rec = shoEdit.get(kanriDB.h_sho, sho_code);
+        //console.log(rec);
       },
     
 }
