@@ -90,19 +90,6 @@ module.exports = {
     return h_kumi;
   },
 
-  getKumi: function (s, res) {
-    //console.log( h_kumi[s] );
-
-    var tblBox = kumiEdit.toTable(s, h_kumi[s], h_juzen, h_kanchi);
-    var shoRec = this.getShoyu(s);
-    res.render('sho_nayose', { title: '名寄せ一覧', name: shoRec.name, tblBox: tblBox });
-    
-  },
-
-  getJuzen: function (fude_code) {
-    return rec = juzenEdit.get(h_juzen, fude_code);
-    //console.log(rec);
-  },
 
 
 };
