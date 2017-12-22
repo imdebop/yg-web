@@ -1,7 +1,8 @@
 //var ygTbl = require('../app/tbl_yg');
-//var kanriDB = require('../app/kanriDB');
+var kanriDB = require('../app/kanriDB');
 //var h_kanchi = kanriDB.h_kanchi;
 //console.log(h_kanchi);
+h_kanchi = kanriDB.h_kanchi;
 
 module.exports = {
     get: function(h_kanchi, kan_code){

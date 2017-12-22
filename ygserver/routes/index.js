@@ -24,6 +24,8 @@ router.get('/sho_kensaku', function(req, res, next) {
 
 router.get('/sho_*', function(req, res, next) {
   var shoList = require('../app/shoList');
+  var kumi = require('../app/kumi');
+
   var url_parts = url.parse(req.url,true);
   console.log(url_parts.path);
   if (/sho_kana/.test(url_parts.path)){
@@ -36,7 +38,7 @@ router.get('/sho_*', function(req, res, next) {
     shoList.kensaku('kanji',kanji,res);
   }else if(/sho_kumi/.test(url_parts.path)){
     var owner = url_parts.query.owner;
-    kanriDB.getKumi(owner,res);
+    kumi.get(owner,res);
   }
 });
 

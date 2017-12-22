@@ -1,6 +1,8 @@
 var kanriDB = require('../app/kanriDB');
 var shoEdit = require('../app/sho_edit');
 var juzenEdit = require('../app/juzen_edit');
+var kanchiList = require('../app/kanchiList');
+
 
 module.exports = {
 ////
