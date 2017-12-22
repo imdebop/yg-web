@@ -86,6 +86,10 @@ module.exports = {
     return h_juzen;
   },
 
+  h_kumi: function(){
+    return h_kumi;
+  },
+
   getKumi: function (s, res) {
     //console.log( h_kumi[s] );
 

@@ -3,10 +3,14 @@ var shoList = require('../app/shoList');
 //var juzenEdit = require('../app/juzen_edit');
 var kumiEdit = require('../app/kumi_edit');
 //var kanchiList = require('../app/kanchiList');
+var h_juzen = kanriDB.h_juzen();
+//var h_kanchi = kanriDB.h_kanchi();
+var h_kumi = kanriDB.h_kumi();
+
 
 module.exports = {
     get: function (s, res) {
-        //console.log( h_kumi[s] );
+        console.log( h_kumi[s] );
     
         var tblBox = kumiEdit.toTable(s, h_kumi[s], h_juzen, h_kanchi);
         var shoRec = shoList.getOne(s);
