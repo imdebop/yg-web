@@ -48,6 +48,12 @@ router.get('/content_*', function(req, res, next) {
   res.render('content_top');
 });
 
+router.get('/panel_horyu', function(req, res, next) {
+  console.log("horyu message sent")
+  socket.emit("message", 'send message.');
+  res.render(req.url.replace("/",""));
+});
+
 router.get('/panel_*', function(req, res, next) {
   //console.log(req.url)  
   res.render(req.url.replace("/",""));
