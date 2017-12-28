@@ -10,7 +10,7 @@ var h_kumi = kanriDB.h_kumi();
 
 module.exports = {
     get: function (s, res) {
-        console.log( h_kumi[s] );
+        //console.log( h_kumi[s] );
     
         var tblBox = kumiEdit.toTable(s, h_kumi[s], h_juzen, h_kanchi);
         var shoRec = shoList.getOne(s);

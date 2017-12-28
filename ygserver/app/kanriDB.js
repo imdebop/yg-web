@@ -78,6 +78,8 @@ var juCol = { name: 1, kana: 23 };
 module.exports = {
   h_kanchi: h_kanchi,
   h_sho: h_sho,
+  tbl_yg: tbl_yg,
+
   sho_rows: function(){
     return sho_rows;
   },

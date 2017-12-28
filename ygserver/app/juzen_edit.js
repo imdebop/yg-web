@@ -1,4 +1,5 @@
-var ygTbl = require('../app/tbl_yg');
+var kanriDB = require('../app/kanriDB');
+var ygTbl = kanriDB.tbl_yg;
 
 module.exports = {
     get: function(h_juzen, fude_code){
