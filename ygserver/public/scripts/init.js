@@ -1,6 +1,5 @@
 
-$(function() {
-    
+var kenriPanel = function() {
     $('#opPanel').load('./panel_sho',function(){
         $('#opPanel').on('submit','.kensaku',function(event) {
             // HTMLでの送信をキャンセル
@@ -41,15 +40,25 @@ $(function() {
         
         console.log(s_text);
     }
+}
+$(kenriPanel);
 
-    
-});
+//$(function() {
+//    $('#content').load('./content_top');
+//});
 
-$(function() {
+var contentLoad = function() {
     $('#content').load('./content_top');
-});
+}
+$(contentLoad);
 
 $(function(){
+    $('#menuKenri').on('click',function(){
+        $(kenriPanel);
+        console.log("menukenri")
+    });
+
+    
     $('#menuKanchi').on('click',function(){
         $('#opPanel').load('panel_kanchi',function(e){
             $('#gaiku_list').on('click','.gaiku', function ($this){
@@ -59,6 +68,19 @@ $(function(){
             });
 
         });
+    });
+
+    $('#menuHoryu').on('click',function(){
+        $('#opPanel').load('panel_horyu',function(e){
+            /*
+            $('#gaiku_list').on('click','.gaiku', function ($this){
+                //console.log($this)
+                s_text = $this.target.innerText;
+                gaiku_sub(s_text);
+            });
+            */
+        });
+        console.log("menuHoryu")
     });
 
     var gaiku_sub = function(s_text){
