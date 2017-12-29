@@ -1,9 +1,6 @@
 #!/usr/bin/env node
 sprintf = require('sprintf').sprintf;
 vsprintf = require('sprintf').vsprintf;
-//const io = require('socket.io-client');
-//const socket = io('localhost:3030');
-const client = require('../app/socket')
 
 /**
  * Module dependencies.

@@ -3,6 +3,7 @@ var router = express.Router();
 var path = require('path');
 var url = require('url');
 var kanriDB = require('../app/kanriDB');
+const client = require('../app/socketTcp')
 //var kanchiList = require('../app/kanchiList');
 //var shoList = require('../app/shoList');
 
@@ -50,7 +51,7 @@ router.get('/content_*', function(req, res, next) {
 
 router.get('/panel_horyu', function(req, res, next) {
   console.log("horyu message sent")
-  socket.emit("message", 'send message.');
+  //socket.emit("message", 'send message.');
   res.render(req.url.replace("/",""));
 });
 
