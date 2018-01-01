@@ -3,7 +3,7 @@ var router = express.Router();
 var path = require('path');
 var url = require('url');
 var kanriDB = require('../app/kanriDB');
-const client = require('../app/horyu')
+const client = require('../app/websockInit')
 //const client = require('../app/socketTcp')
 //var kanchiList = require('../app/kanchiList');
 //var shoList = require('../app/shoList');
@@ -73,12 +73,12 @@ router.get('/kanchi_list', function(req, res, next) {
 });
 
 router.get('/horyu_list', function(req, res, next) {
-  //var horyuList = require('../app/horyuList');
+  var horyuList = require('../app/horyuList');
   //console.log(req.url);
   var url_parts = url.parse(req.url,true);
   var gaiku = url_parts.query.gaiku;
   console.log("gaiku=" + gaiku); 
-  horyuList.getByBlock(gaiku,res);
+  horyuList.getByBlock(client, gaiku,res);
   //kanriDB.kanchisByBlock(gaiku,res);
 
 });
