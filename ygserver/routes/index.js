@@ -3,7 +3,8 @@ var router = express.Router();
 var path = require('path');
 var url = require('url');
 var kanriDB = require('../app/kanriDB');
-const client = require('../app/socketTcp')
+const client = require('../app/horyu')
+//const client = require('../app/socketTcp')
 //var kanchiList = require('../app/kanchiList');
 //var shoList = require('../app/shoList');
 
