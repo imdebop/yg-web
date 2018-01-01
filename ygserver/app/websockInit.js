@@ -1,3 +1,4 @@
+
 var WebSocketClient = require('websocket').client;
 var origin = 'ygsvr'
 
@@ -7,7 +8,10 @@ client.on('connectFailed', function(error) {
     console.log('Connect Error: ' + error.toString());
 });
 
+var con;
+
 client.on('connect', function(connection) {
+    con = connection;
     console.log('WebSocket Client Connected');
     connection.on('error', function(error) {
         console.log("Connection Error: " + error.toString());
@@ -38,5 +42,8 @@ client.connect('ws://localhost:4567/websocket',
 );
 
 module.exports = {
-    client: client
+    client: client,
+    send: function(str){
+        con.sendUTF(str);
+    }
 }
