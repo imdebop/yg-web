@@ -72,4 +72,16 @@ router.get('/kanchi_list', function(req, res, next) {
 
 });
 
+router.get('/horyu_list', function(req, res, next) {
+  //var horyuList = require('../app/horyuList');
+  //console.log(req.url);
+  var url_parts = url.parse(req.url,true);
+  var gaiku = url_parts.query.gaiku;
+  console.log("gaiku=" + gaiku); 
+  horyuList.getByBlock(gaiku,res);
+  //kanriDB.kanchisByBlock(gaiku,res);
+
+});
+
+
 module.exports = router;

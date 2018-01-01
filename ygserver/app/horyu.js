@@ -20,7 +20,7 @@ client.on('connect', function(connection) {
             console.log("Received: '" + message.utf8Data + "'");
         }
     });
-
+    /*
     function sendNumber() {
         if (connection.connected) {
             var number = Math.round(Math.random() * 0xFFFFFF);
@@ -29,6 +29,7 @@ client.on('connect', function(connection) {
         }
     }
     sendNumber();
+    */
 });
 
 client.connect('ws://localhost:4567/websocket', 
