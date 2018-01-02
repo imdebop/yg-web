@@ -9,6 +9,7 @@ client.on('connectFailed', function(error) {
 });
 
 var con;
+var resObj;
 
 client.on('connect', function(connection) {
     con = connection;
@@ -23,6 +24,7 @@ client.on('connect', function(connection) {
         if (message.type === 'utf8') {
             console.log("Received: '" + message.utf8Data + "'");
         }
+        resObj.send("horu_list to be rendered")
     });
     /*
     function sendNumber() {
@@ -36,14 +38,22 @@ client.on('connect', function(connection) {
     */
 });
 
-client.connect('ws://localhost:4567/websocket', 
+function client_open(){
+    client.connect('ws://localhost:4567/websocket', 
     null, [origin]
-//'echo-protocol'
-);
+    //'echo-protocol'
+    );
+}
+
+client_open();
 
 module.exports = {
     client: client,
-    send: function(str){
+    send: function(str,res){
+        resObj = res
+        if (!con.connected){
+            client_open();
+        }
         con.sendUTF(str);
     }
 }

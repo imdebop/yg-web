@@ -77,8 +77,8 @@ router.get('/horyu_list', function(req, res, next) {
   //console.log(req.url);
   var url_parts = url.parse(req.url,true);
   var gaiku = url_parts.query.gaiku;
-  var msg = "gaiku=" + gaiku;
-  client.send(msg)
+  var msg = "horyuByGaiku:" + gaiku;
+  client.send(msg, res)
   //console.log();
   horyuList.getByBlock(client, gaiku,res);
   //kanriDB.kanchisByBlock(gaiku,res);
