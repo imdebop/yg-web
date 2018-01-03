@@ -73,6 +73,7 @@ router.get('/kanchi_list', function(req, res, next) {
 });
 
 router.get('/horyu_list', function(req, res, next) {
+  var res_st = res;
   var horyuList = require('../app/horyuList');
   //console.log(req.url);
   var url_parts = url.parse(req.url,true);
@@ -80,7 +81,7 @@ router.get('/horyu_list', function(req, res, next) {
   var msg = "horyuByGaiku:" + gaiku;
   client.send(msg, res)
   //console.log();
-  horyuList.getByBlock(client, gaiku,res);
+  //horyuList.getByBlock(client, gaiku,res);
   //kanriDB.kanchisByBlock(gaiku,res);
 
 });

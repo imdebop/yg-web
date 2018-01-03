@@ -1,0 +1,17 @@
+input#btn_kensaku {
+	font-size: 120%;
+}
+
+.tbl {
+	border-width: thin;
+	border-style: solid;
+	width: 33%;
+	text-align : center;
+}
+
+.tbl_nayose {
+	border-width: thin;
+	border-style: solid;
+	width: 50%;
+	text-align : center;
+}

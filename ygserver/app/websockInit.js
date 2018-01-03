@@ -1,6 +1,7 @@
 
 var WebSocketClient = require('websocket').client;
-var origin = 'ygsvr'
+var origin = 'ygsvr';
+var horyuList = require('../app/horyuList');
 
 var client = new WebSocketClient();
 
@@ -24,7 +25,8 @@ client.on('connect', function(connection) {
         if (message.type === 'utf8') {
             console.log("Received: '" + message.utf8Data + "'");
         }
-        resObj.send("horu_list to be rendered")
+        horyuList.render(resObj, message.utf8Data);
+        //resObj.send("horu_list to be rendered");
     });
     /*
     function sendNumber() {
