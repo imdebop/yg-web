@@ -2,8 +2,13 @@ var async = require('async');
 
 module.exports = {
     render: function(res, data){
+        if (data.substr(0,1)=="<"){
+            res.send(data);
+            return
+        }
         //console.log(client);
         arr = JSON.parse(data);
+        console.log("print at horyuList");
         console.log(arr);
         var tbl = [];
         var wk;

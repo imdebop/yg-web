@@ -41,8 +41,7 @@ client.on('connect', function(connection) {
 });
 
 function client_open(){
-    client.connect('ws://localhost:4567/websocket', 
-    null, [origin]
+    client.connect('ws://localhost:4567/websocket',null, [origin]
     //'echo-protocol'
     );
 }
