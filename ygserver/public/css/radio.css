@@ -5,10 +5,10 @@
 	display: block;
 	float: left;
 	cursor: pointer;
-	width: 15%;
+	width: 14%;
 	margin: 0;
 	padding: 12px 5px;
-	border-right: 3px solid #000000;
+	border-right: 3px solid #920000;
 	background: #bdc3c7;
 	color: #555e64;
 	font-size: 20px;
@@ -23,7 +23,18 @@
 	border-right: 0px;
 	border-radius: 0 3px 3px 0;
 }
+.mnHo{
+	border-right: 10px solid #220686;	
+	color: #03548a;
+}
+.mnHo input[type="radio"]:checked + label {
+	background-color: #a1b91d;
+	color: #fff;
+	border-right: 3px solid #920000;
+}
+/*
 .sample input[type="radio"]:checked + label {
 	background-color: #a1b91d;
 	color: #fff;
 }
+*/

@@ -9,12 +9,16 @@ let data = fs.readFileSync(file);
 
 let res = csvSync(data);
 
+var arrAza = [];
 var tbl_yg={};
 res.forEach(el => {
-    var id = el[0];
-    var cd = el[2];
-    var azamei = el[3];
-    tbl_yg[id + "_" + cd] = azamei;
+    let id = el[0];
+    let cd = el[2];
+    let str = el[3];
+    tbl_yg[id + "_" + cd] = str;
+    if (id === "AZA"){
+        arrAza.push([cd, str])
+    }
 });
    //console.log(tbl_yg);
 
@@ -25,5 +29,6 @@ module.exports = {
         var id = "AZA_";
         var val = tbl_yg[id + cd];
         return val; 
-    }
+    },
+    arrAza: arrAza
 }

@@ -22,7 +22,7 @@
   <script type="text/javascript" src="./scripts/kenri.js"></script>
   <style>
    input[ type=radio ] { display: none; }
-   .label { width: 50px;
+   .label { width: 40px;
             margin: 5px;
             border: 1px solid #006DD9;
             white-space: nowrap;
@@ -34,7 +34,7 @@
 
   .wrapper {
     width: 100%;
-    max-width: 1400px;
+    max-width: 1500px;
     margin: 0 auto;
     display: grid;
     grid-row-gap: 10px;
@@ -44,17 +44,17 @@
   @media (min-width: 550px) {
 
     .wrapper {
-      grid-template-columns: 1fr 3fr;
+      grid-template-columns: 2fr 6fr;
       grid-column-gap: 2em;
       grid-row-gap: 20px;
     }
 
     .mainheader {
-      grid-column: 1 / 4;
+      grid-column: 1 / 6;
       grid-row: 1 / 2;
     }
     .menuHeader {
-      grid-column: 1 / 4;
+      grid-column: 1 / 6;
       grid-row: 2 / 3;
     }
 
@@ -64,12 +64,12 @@
     }
 
     .content {
-      grid-column: 2 / 3;
+      grid-column: 2 / 6;
       grid-row: 3 / 4;
     }
 
     .mainfooter {
-      grid-column: 1 / 4;
+      grid-column: 1 / 6;
       grid-row: 4 / 5;
     }
   }
@@ -89,8 +89,12 @@
         <label for="menuKenri">権利者情報</label>
         <input name="s3" id="menuKanchi" value="kanchi" type="radio">
         <label for="menuKanchi">換地情報</label>
-        <input name="s3" id="menuHoryu" value="horyu" type="radio">
-        <label for="menuHoryu">保留地情報</label>
+        <input name="s3" id="menuHoryu" value="horyu" type="radio" >
+        <label for="menuHoryu" >保留地情報</label>
+        <div class="mnHo" >
+          <input name="s3" id="menuIten" value="iten" type="radio">
+          <label for="menuIten">移転情報</label>
+        </div>
         <input name="s3" id="menuZumen" value="zumen" type="radio">
         <label for="menuZumen">図面関連</label>
         <input name="s3" id="menuKanri" value="kanri" type="radio">

@@ -93,6 +93,19 @@ $(function(){
         
     }
 
+    $('#menuIten').on('click',function(){
+        $('#opPanel').load('panel_iten',function(e){
+            $('#horyu_list').on('click','.gaiku', function ($this){
+                //console.log($this)
+                s_text = $this.target.innerText;
+                //console.log(s_text);
+                horyu_sub(s_text);
+            });
+        });
+        console.log("menuIten")
+    });
+
+
 });
 
 
