@@ -52,7 +52,8 @@ router.get('/content_*', function(req, res, next) {
 
 router.get('/panel_iten', function(req, res, next) {
   var iten = require('../app/iten');
-  iten.render_panel(res);
+  iten.process_panel(res, client);
+  //iten.render_panel(res, client);
 });
 
 router.get('/panel_*', function(req, res, next) {
@@ -65,9 +66,7 @@ router.get('/kanchi_list', function(req, res, next) {
   //console.log(req.url);
   var url_parts = url.parse(req.url,true);
   var gaiku = url_parts.query.gaiku;
-  //console.log(gaiku); 
   kanchiList.getByBlock(gaiku,res);
-  //kanriDB.kanchisByBlock(gaiku,res);
 
 });
 
@@ -77,11 +76,7 @@ router.get('/horyu_list', function(req, res, next) {
   //console.log(req.url);
   var url_parts = url.parse(req.url,true);
   var gaiku = url_parts.query.gaiku;
-  var msg = "horyuByGaiku:" + gaiku;
-  client.send(msg, res)
-  //console.log();
-  //horyuList.getByBlock(client, gaiku,res);
-  //kanriDB.kanchisByBlock(gaiku,res);
+  horyuList.process(res, client, gaiku);
 
 });
 

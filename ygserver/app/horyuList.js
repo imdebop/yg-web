@@ -1,7 +1,15 @@
 var async = require('async');
 
 module.exports = {
+    process: function(res, client, gaiku){
+        let msg = "horyuByGaiku:" + gaiku;
+        client.send(msg, res, this);
+    },
+
     render: function(res, data){
+        console.log(this);
+        console.log("eeeeeeeeeee");
+
         if (data.substr(0,1)=="<"){
             res.send(data);
             return

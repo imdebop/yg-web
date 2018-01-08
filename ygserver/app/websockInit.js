@@ -1,7 +1,7 @@
 
 var WebSocketClient = require('websocket').client;
 var origin = 'ygsvr';
-var horyuList = require('../app/horyuList');
+//var horyuList = require('../app/horyuList');
 
 var client = new WebSocketClient();
 
@@ -11,6 +11,7 @@ client.on('connectFailed', function(error) {
 
 var con;
 var resObj;
+var procObj;
 
 client.on('connect', function(connection) {
     con = connection;
@@ -25,7 +26,7 @@ client.on('connect', function(connection) {
         if (message.type === 'utf8') {
             console.log("Received: '" + message.utf8Data + "'");
         }
-        horyuList.render(resObj, message.utf8Data);
+        procObj.render(resObj, message.utf8Data);
         //resObj.send("horu_list to be rendered");
     });
     /*
@@ -49,9 +50,10 @@ function client_open(){
 client_open();
 
 module.exports = {
-    client: client,
-    send: function(str,res){
-        resObj = res
+    //client: client,
+    send: function(str,res, proc){
+        resObj = res;
+        procObj = proc;
         if (!con.connected){
             client_open();
         }

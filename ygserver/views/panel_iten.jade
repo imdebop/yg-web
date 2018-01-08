@@ -5,6 +5,7 @@
 h5 移転補償
 ul
 - for (let i=0; i<arrAza.length; i++){
-    li
-        a  #{arrAza[i][1]}
+- let azaCD = arrAza[i][0]; let azaName = arrAza[i][1]
+    li(style = 'margin-bottom: 0px')
+        a(href="#", value="#{azaCD}")  #{azaName}
 - }
