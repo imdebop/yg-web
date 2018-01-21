@@ -1,11 +1,42 @@
 //- var tblYG = require('../app/tbl_yg');
 //- var arrAza = tblYG.arrAza;
 //- console.log(arrAza);
-
+//-
 h5 移転補償
+
 ul
-- for (let i=0; i<arrAza.length; i++){
-- let azaCD = arrAza[i][0]; let azaName = arrAza[i][1]
+  - for (let i=0; i<iten.length; i++){
+    div(onclick=`obj=document.getElementById('r${i*100}').style; obj.display=(obj.display=='none')?'block':'none';`)
+
+      li(style = 'margin-bottom: 0px', id=`rank${i*100}` )
+        //-a(href="#", value=`${i*100}`)  #{i*100}
+        a  #{i*100}
+        div(id=`r${i*100}`,style="display:none")
+            - let iiten = iten[i]
+            - for(let ii=0; ii<iiten.length; ii++){
+              div(onclick=`obj=document.getElementById('rr${i*100+ii*10}').style; obj.display=(obj.display=='none')?'block':'none';`)
+                ul(style = 'margin-bottom: 0px')
+                    li
+                        a  #{ii}
+                        div(id=`rr${i*100+ii*10}`,style="display:none")
+                          ul
+                            -let iiiten = iiten[ii]
+                            -for(let iii=0; iii<iiiten.length; iii++){
+                                li
+                                    a #{iii}
+                            -}
+            - }
+
+
+  - }
+
+-
+
+
+//-
+    ul
+    - for (let i=0; i<arrAza.length; i++){
+    - let azaCD = arrAza[i][0]; let azaName = arrAza[i][1]
     li(style = 'margin-bottom: 0px')
         a(href="#", value="#{azaCD}")  #{azaName}
-- }
+    - }
