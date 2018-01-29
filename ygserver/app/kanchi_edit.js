@@ -22,9 +22,10 @@ module.exports = {
             bk_lot += str;
             lotEd += str;
         }
-        bk_lot += " ロット";
+        bk_lot += " ロット ";
         let kanRec = h_kanchi[kan_code].split("|");
         let men = kanRec[3];
+        bk_lot += men;
         let sho_code = kanRec[4];
         let hRec = {
             bk: bk,

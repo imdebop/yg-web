@@ -21,7 +21,8 @@ module.exports = {
             //console.log(juzenEdit.get(h_juzen, lands[0]));
             for(let i=0; i<lands.length; i++){
                 let rec = juzenEdit.get(h_juzen, lands[i]);
-                let land = rec.azamei + " " + rec.chiban;
+                let tokiS = sprintf( '%0.2f', Number(rec.tokiS));
+                let land = rec.azamei + " " + rec.chiban + " 登記" + tokiS;
                 lands[i] = land;
             }
             for(let i=0; i<kanchis.length; i++){
