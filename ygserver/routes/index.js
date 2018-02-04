@@ -6,8 +6,8 @@ var kanriDB = require('../app/kanriDB');
 const client = require('../app/websockInit')
 //const client = require('../app/socketTcp')
 //var kanchiList = require('../app/kanchiList');
-var shoList = require('../app/shoList');
-var kumi = require('../app/kumi');
+//var shoList = require('../app/shoList');
+//var kumi = require('../app/kumi');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -26,8 +26,8 @@ router.get('/sho_kensaku', function(req, res, next) {
 });
 
 router.get('/sho_*', function(req, res, next) {
-  //var shoList = require('../app/shoList');
-  //var kumi = require('../app/kumi');
+  var shoList = require('../app/shoList');
+  var kumi = require('../app/kumi');
 
   var url_parts = url.parse(req.url,true);
   console.log(url_parts.path);
