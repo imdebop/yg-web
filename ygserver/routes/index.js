@@ -6,7 +6,8 @@ var kanriDB = require('../app/kanriDB');
 const client = require('../app/websockInit')
 //const client = require('../app/socketTcp')
 //var kanchiList = require('../app/kanchiList');
-//var shoList = require('../app/shoList');
+var shoList = require('../app/shoList');
+var kumi = require('../app/kumi');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -25,14 +26,15 @@ router.get('/sho_kensaku', function(req, res, next) {
 });
 
 router.get('/sho_*', function(req, res, next) {
-  var shoList = require('../app/shoList');
-  var kumi = require('../app/kumi');
+  //var shoList = require('../app/shoList');
+  //var kumi = require('../app/kumi');
 
   var url_parts = url.parse(req.url,true);
   console.log(url_parts.path);
   if (/sho_kana/.test(url_parts.path)){
     var owner_search = url_parts.query.kana;
     //kanriDB.kensaku('kana',owner_search,res);
+    console.log("shoList.kensaku called")
     shoList.kensaku('kana',owner_search,res);
   }else if(/sho_kanji/.test(url_parts.path)){
     var kanji = url_parts.query.s_kanji;
