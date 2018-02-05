@@ -2,6 +2,7 @@
 var kenriPanel = function() {
     console.log("kenriPanel in init.js called")
     $('#opPanel').load('./panel_sho',function(){
+        console.log("panel_sho loaded")
         $('#opPanel').on('submit','.kensaku',function(event) {
             // HTMLでの送信をキャンセル
             event.preventDefault();
@@ -16,27 +17,35 @@ var kenriPanel = function() {
         });
     
         $('#kana_kensaku').on('click','.kana',
-            function ($this){ s_text = $this.target.textContent
+            function ($this){ s_text = $this.target.textContent;
             $('#content').load("./sho_kana?kana=" + s_text, getKumi
             );
+        });
+
+        $('#content').on('click','.tbl', function($this){
+            var s_text = $this.target.innerText;
+            var sho_code = s_text.split(" : ")[1];
+            hdPane_sho(s_text);
+            $('#content').load('./sho_kumi?owner=' + sho_code);
+            //console.log("kensaku_name_clicked");
         });
     });
 
     var getKumi = function(){
-        $('#content').on('click','.tbl',               function($this){
-            var s_text = $this.target.innerText;
-            var sho_code = s_text.split(" : ")[1];
-            hdPane_sho(s_text);
-        $('#content').load('./sho_kumi?owner=' + sho_code);
-        //console.log("kensaku_name_clicked");
-    });
+        //$('#content').on('click','.tbl', function($this){
+        //    var s_text = $this.target.innerText;
+        //    var sho_code = s_text.split(" : ")[1];
+        //    hdPane_sho(s_text);
+        //    $('#content').load('./sho_kumi?owner=' + sho_code);
+        //    //console.log("kensaku_name_clicked");
+        //});
     }
 
     var hdPane_sho = function(str){
         console.log(str);
         $("#hdTop").hide();
         $("#hdSho").show();
-        $("#hdSho")[0].innerHTML = str;
+        $("#hdSho")[0].innerHTML += ("/" + str);
         console.log($('#hdSho'));
     };
 
