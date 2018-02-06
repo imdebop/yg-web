@@ -21,15 +21,16 @@ var kenriPanel = function() {
             $('#content').load("./sho_kana?kana=" + s_text, getKumi
             );
         });
+    });
 
         $('#content').on('click','.tbl', function($this){
             var s_text = $this.target.innerText;
             var sho_code = s_text.split(" : ")[1];
             hdPane_sho(s_text);
             $('#content').load('./sho_kumi?owner=' + sho_code);
+            $(".mainfooter").load("./aaabbb?shoCd=0068");
             //console.log("kensaku_name_clicked");
         });
-    });
 
     var getKumi = function(){
         //$('#content').on('click','.tbl', function($this){

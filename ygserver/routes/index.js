@@ -65,7 +65,7 @@ router.get('/panel_*', function(req, res, next) {
 
 router.get('/kanchi_list', function(req, res, next) {
   var kanchiList = require('../app/kanchiList');
-  //console.log(req.url);
+  //console.log(req.url)
   var url_parts = url.parse(req.url,true);
   var gaiku = url_parts.query.gaiku;
   kanchiList.getByBlock(gaiku,res);
@@ -79,6 +79,15 @@ router.get('/horyu_list', function(req, res, next) {
   var url_parts = url.parse(req.url,true);
   var gaiku = url_parts.query.gaiku;
   horyuList.process(res, client, gaiku);
+
+});
+
+router.get('/aaabbb',function(req, res, next){
+  var url_parts = url.parse(req.url,true);
+  var shoCd = url_parts.query.shoCd;
+  console.log(shoCd)
+  msg = "itenfude:" + shoCd
+  client.send(msg, res, this);
 
 });
 
