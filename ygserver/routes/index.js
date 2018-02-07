@@ -83,11 +83,12 @@ router.get('/horyu_list', function(req, res, next) {
 });
 
 router.get('/aaabbb',function(req, res, next){
+  var itenInfo = require('../app/itenInfo')
   var url_parts = url.parse(req.url,true);
   var shoCd = url_parts.query.shoCd;
   console.log(shoCd)
-  msg = "itenfude:" + shoCd
-  client.send(msg, res, this);
+  msg = "itenInfo:" + shoCd
+  itenInfo.process(res, client, msg);
 
 });
 

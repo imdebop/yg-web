@@ -11,6 +11,8 @@ module.exports = {
         console.log("eeeeeeeeeee");
 
         if (data.substr(0,1)=="<"){
+            console.log("use send to return message in horyuList.js");
+            console.log(data)
             res.send(data);
             return
         }
