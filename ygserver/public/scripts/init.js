@@ -28,7 +28,7 @@ var kenriPanel = function() {
             var sho_code = s_text.split(" : ")[1];
             hdPane_sho(s_text);
             $('#content').load('./sho_kumi?owner=' + sho_code);
-            $(".mainfooter").load("./aaabbb?shoCd=0068");
+            $(".mainfooter").load("./aaabbb?shoCd="+ sho_code);
             //console.log("kensaku_name_clicked");
         });
 
