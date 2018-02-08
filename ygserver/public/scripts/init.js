@@ -111,8 +111,8 @@ $(function(){
         
     }
 
-    $('#menuIten').on('click',function(){
-        $('#opPanel').load('panel_iten',function(e){
+    $('#menuJuzen').on('click',function(){
+        $('#opPanel').load('panel_juzen',function(e){
             $('#horyu_list').on('click','.gaiku', function ($this){
                 //console.log($this)
                 s_text = $this.target.innerText;
@@ -120,7 +120,7 @@ $(function(){
                 horyu_sub(s_text);
             });
         });
-        console.log("menuIten")
+        console.log("menuJuzen")
     });
 
 

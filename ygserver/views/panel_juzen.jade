@@ -1,0 +1,12 @@
+//- var tblYG = require('../app/tbl_yg');
+//- var arrAza = tblYG.arrAza;
+//- console.log(arrAza);
+//-
+h5 従前地情報
+
+  ul
+    - for (let i=0; i<arrAza.length; i++){
+    - let azaCD = arrAza[i][0]; let azaName = arrAza[i][1]
+    li(style = 'margin-bottom: 0px')
+        a(href="#", value="#{azaCD}")  #{azaName}
+    - }

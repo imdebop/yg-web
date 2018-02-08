@@ -8,7 +8,7 @@ module.exports = {
     render: function(res, data){
         //console.log(this);
         console.log("returning message in itenInfo");
-
+        console.log(data);
             res.send(data);
             return
     }
