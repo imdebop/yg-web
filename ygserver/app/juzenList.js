@@ -11,5 +11,8 @@ module.exports = {
         //console.log(rec);
       },
     
-
+    getList: function(azaCd){
+        console.log(Object.keys(kanriDB.h_juzen()));
+        //console.log(kanriDB.h_juzen);
+    }
 }

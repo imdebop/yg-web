@@ -52,11 +52,17 @@ router.get('/content_*', function(req, res, next) {
   res.render('content_top');
 });
 
-router.get('/panel_iten', function(req, res, next) {
-  var iten = require('../app/iten');
-  iten.process_panel(res, client);
-  //iten.render_panel(res, client);
+router.get('/panel_juzen', function(req, res, next) {
+  var tblYG = require('../app/tbl_yg');
+  var arrAza = tblYG.arrAza;
+  res.render('panel_juzen',{arrAza: arrAza});
 });
+
+//router.get('/panel_iten', function(req, res, next) {
+//  var iten = require('../app/iten');
+//  iten.process_panel(res, client);
+//  //iten.render_panel(res, client);
+//});
 
 router.get('/panel_*', function(req, res, next) {
   //console.log(req.url)  
@@ -81,6 +87,14 @@ router.get('/horyu_list', function(req, res, next) {
   horyuList.process(res, client, gaiku);
 
 });
+
+router.get('/juzen_list', function(req, res, next){
+  var juzenList = require('../app/juzenList');
+  var url_parts = url.parse(req.url,true);
+  var azaCd = url_parts.query.azaCd;
+  juzenList.getList(azaCd);
+});
+
 
 router.get('/aaabbb',function(req, res, next){
   var itenInfo = require('../app/itenInfo')

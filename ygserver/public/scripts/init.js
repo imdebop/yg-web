@@ -113,15 +113,24 @@ $(function(){
 
     $('#menuJuzen').on('click',function(){
         $('#opPanel').load('panel_juzen',function(e){
-            $('#horyu_list').on('click','.gaiku', function ($this){
+            //$('#horyu_list').on('click','.gaiku', function ($this){
                 //console.log($this)
-                s_text = $this.target.innerText;
+            //    s_text = $this.target.innerText;
                 //console.log(s_text);
-                horyu_sub(s_text);
-            });
-        });
+            //    horyu_sub(s_text);
+            //});
+            $('.panelAza').on('click',function(e){
+                var azaCd;
+                azaCd = e.target.attributes.value.value;
+                console.log(azaCd);
+                e.preventDefault;
+                $('#content').load('./juzen_list?azaCd=' + azaCd);
+            })
+                });
         console.log("menuJuzen")
     });
+
+
 
 
 });
