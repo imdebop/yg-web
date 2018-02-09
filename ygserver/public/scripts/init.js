@@ -38,9 +38,9 @@ var kenriPanel = function() {
 var hdPane_sho = function(str){
     console.log(str);
     $("#hdTop").hide();
-    $("#hdSho").show();
-    $("#hdSho")[0].innerHTML += ("/" + str);
-    console.log($('#hdSho'));
+    $("#hdSho").css('display', 'inline-grid');;
+    $("#hdItems")[0].innerHTML += ("/" + str);
+    //console.log($('#hdSho'));
 };
 
     /*

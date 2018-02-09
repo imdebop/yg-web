@@ -5,10 +5,13 @@ div(style='overflow-y:scroll; height:500px')
     tbody
         - for(let i=0; i<tbl.length; i++ ){
         -   let rec = juEd.get(h_juzen, tbl[i]);
-        -   let str = rec.chiban + " ：" + rec.chimoku + "：登記地積 " + rec.tokiS + "㎡：" + rec.name + "  : " + rec.shoyu
-          tr
-            td(style='font-size: 13pt;')
-              a(class="tbl",href="#", value="#{rec.shoyu}")= str
+        -   let str = rec.chiban + " ：" + rec.chimoku + "：登記地積 " + rec.tokiS + "㎡："
+        -   let str2 = rec.name + "  : " + rec.shoyu
+          tr(style='font-size: 13pt;')
+            td
+              p= str
+            td
+              a(class="tbl",href="#", value="#{rec.shoyu}")= str2
         - }
 
 
