@@ -1,4 +1,6 @@
 var kanriDB = require('../app/kanriDB');
+var h_sho = kanriDB.h_sho;
+var shoEdit = require('../app/sho_edit');
 var ygTbl = kanriDB.tbl_yg;
 
 module.exports = {
@@ -9,9 +11,11 @@ module.exports = {
             choCD: arr[1],
             azamei: "",  // edit later
             chiban: arr[2],
-            chimoku: arr[6],
+            chimokuCD: arr[6],
+            chimoku: "",
             tokiS: arr[7],
             shoyu: arr[8],
+            name: "initVal",    //later
             kijunS: arr[9],
             m2shisu: arr[10],
             hyotei: arr[14]
@@ -21,6 +25,8 @@ module.exports = {
         //console.log(rec.choCD);
         //console.log(ygTbl.get_azamei(rec.choCD));
         rec.azamei = ygTbl.get_azamei(rec.choCD);
+        rec.chimoku = ygTbl.get_chimoku(rec.chimokuCD)
+        rec.name = shoEdit.get(h_sho, rec.shoyu).name;
         return rec;
     }
 }

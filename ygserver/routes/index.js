@@ -92,7 +92,8 @@ router.get('/juzen_list', function(req, res, next){
   var juzenList = require('../app/juzenList');
   var url_parts = url.parse(req.url,true);
   var azaCd = url_parts.query.azaCd;
-  juzenList.getList(azaCd);
+  //juzenList.getList(req, client, azaCd);
+  juzenList.getList(res, azaCd);
 });
 
 

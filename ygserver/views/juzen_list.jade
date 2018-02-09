@@ -1,0 +1,16 @@
+//- console.log(tbl[0].bk)
+h4= "ーーー" + azamei + "ーーー" + title 
+div(style='overflow-y:scroll; height:500px')
+  table
+    tbody
+        - for(let i=0; i<tbl.length; i++ ){
+        -   let rec = juEd.get(h_juzen, tbl[i]);
+        -   let str = rec.chiban + " ：" + rec.chimoku + "：登記地積 " + rec.tokiS + "㎡：" + rec.name + "  : " + rec.shoyu
+          tr
+            td(style='font-size: 13pt;')
+              a(class="tbl",href="#", value="#{rec.shoyu}")= str
+        - }
+
+
+p
+a(href="/ygtop.html") 位置図を表示

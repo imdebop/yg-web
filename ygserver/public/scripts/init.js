@@ -18,21 +18,14 @@ var kenriPanel = function() {
     
         $('#kana_kensaku').on('click','.kana',
             function ($this){ s_text = $this.target.textContent;
-            $('#content').load("./sho_kana?kana=" + s_text, getKumi
+            $('#content').load("./sho_kana?kana=" + s_text, //getKumi
             );
         });
     });
 
-        $('#content').on('click','.tbl', function($this){
-            var s_text = $this.target.innerText;
-            var sho_code = s_text.split(" : ")[1];
-            hdPane_sho(s_text);
-            $('#content').load('./sho_kumi?owner=' + sho_code);
-            $(".mainfooter").load("./aaabbb?shoCd="+ sho_code);
-            //console.log("kensaku_name_clicked");
-        });
 
-    var getKumi = function(){
+    getKumi();
+    // = function(){
         //$('#content').on('click','.tbl', function($this){
         //    var s_text = $this.target.innerText;
         //    var sho_code = s_text.split(" : ")[1];
@@ -40,15 +33,15 @@ var kenriPanel = function() {
         //    $('#content').load('./sho_kumi?owner=' + sho_code);
         //    //console.log("kensaku_name_clicked");
         //});
-    }
-
-    var hdPane_sho = function(str){
-        console.log(str);
-        $("#hdTop").hide();
-        $("#hdSho").show();
-        $("#hdSho")[0].innerHTML += ("/" + str);
-        console.log($('#hdSho'));
-    };
+    //}
+}
+var hdPane_sho = function(str){
+    console.log(str);
+    $("#hdTop").hide();
+    $("#hdSho").show();
+    $("#hdSho")[0].innerHTML += ("/" + str);
+    console.log($('#hdSho'));
+};
 
     /*
     var kana_sub = function(s_text){
@@ -57,7 +50,18 @@ var kenriPanel = function() {
         console.log(s_text);
     }
     */
+//}
+var getKumi = function(){ $('#content').on('click','.tbl',
+    function($this){
+        var s_text = $this.target.innerText;
+        var sho_code = s_text.split(" : ")[1];
+        hdPane_sho(s_text);
+        $('#content').load('./sho_kumi?owner=' + sho_code);
+        $(".mainfooter").load("./aaabbb?shoCd="+ sho_code);
+        //console.log("kensaku_name_clicked");
+    });
 }
+
 $(kenriPanel);
 
 //$(function() {
@@ -124,7 +128,10 @@ $(function(){
                 azaCd = e.target.attributes.value.value;
                 console.log(azaCd);
                 e.preventDefault;
-                $('#content').load('./juzen_list?azaCd=' + azaCd);
+                $('#content').load('./juzen_list?azaCd=' + azaCd,function(){
+                    //getKumi();
+                    console.log("get kumi set in juzen list");
+                });
             })
                 });
         console.log("menuJuzen")
