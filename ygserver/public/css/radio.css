@@ -27,14 +27,15 @@
 	border-right: 10px solid #220686;	
 	color: #03548a;
 }
+
+.sample input[type="radio"]:checked + label {
+	background-color: #a1b91d;
+	color: #fff;
+}
+
+
 .mnHo input[type="radio"]:checked + label {
 	background-color: #a1b91d;
 	color: #fff;
 	border-right: 3px solid #920000;
 }
-/*
-.sample input[type="radio"]:checked + label {
-	background-color: #a1b91d;
-	color: #fff;
-}
-*/
