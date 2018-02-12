@@ -61,9 +61,11 @@
     #hdSho {
       grid-column: 1/4;
       grid-row: 1/2;
+     /* background-color: rgb(154, 250, 234);
+     */
     }
 
-    #shoSakusei {
+    #hdBtnClear {
       grid-column: 3/4;
       grid-row: 1/2;
     }
@@ -93,8 +95,14 @@
 
     <header class="mainheader">
       <h3 id="hdTop"><font size="5">柳生川南部土地区画整理 </font>　　　　　業務システム　　<font size="5">～～サンプル～～</font></h3>
-      <div id = "hdSho" style="display: none">
-        <h5 id="hdItems" >換地証明：</h5><button id="shoSakusei">証明書作成</button>
+      <div id = "hdSho" style="display: none" class="hdSho">
+          <span  class="hdSho" >
+            <span><button class="hdSho" id="hdBtnCreate">換地証明作成：</button></span>
+            <button class="hdSho">aaaaaa</button>
+            <span id="hdItems">
+            </span>
+          </span>
+          <button id="hdBtnClear" class="hdBtnClear hdSho">クリア</button>
       </div>
     </header>
       <div class="sample menuHeader" id="menu-select">
@@ -144,7 +152,8 @@
   </div>
 
   <script src="./scripts/init.js"></script>
+  <!--
   <script src="./scripts/hdPane.js"></script>
-
+  -->
 
 </body></html>

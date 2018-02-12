@@ -1,6 +1,7 @@
+var aaa = require( "./hdPane" );
 
 var kenriPanel = function() {
-    console.log("kenriPanel in init.js called")
+    console.log("kenriPanel in init.js called");
     $('#opPanel').load('./panel_sho',function(){
         console.log("panel_sho loaded")
         $('#opPanel').on('submit','.kensaku',function(event) {
@@ -39,8 +40,8 @@ var hdPane_sho = function(str){
     console.log(str);
     $("#hdTop").hide();
     $("#hdSho").css('display', 'inline-grid');;
-    $("#hdItems")[0].innerHTML += ("/" + str);
-    //console.log($('#hdSho'));
+    $("#hdItems")[0].textContent += ("/" + str);
+    //console.log($('#hdItems'));
 };
 
     /*
@@ -55,7 +56,8 @@ var getKumi = function(){ $('#content').on('click','.tbl',
     function($this){
         var s_text = $this.target.innerText;
         var sho_code = s_text.split(" : ")[1];
-        hdPane_sho(s_text);
+        addHdItem();
+        //hdPane_sho(s_text);
         $('#content').load('./sho_kumi?owner=' + sho_code);
         $(".mainfooter").load("./aaabbb?shoCd="+ sho_code);
         //console.log("kensaku_name_clicked");
