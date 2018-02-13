@@ -1,4 +1,5 @@
-$(function(){
+//export function () {
+//$(function(){
     //$("#aaa").on('click',function(){
     //    console.log("aaaaaaaaaaaaaaaaaaaa")
     //});
@@ -7,6 +8,7 @@ $(function(){
     //    $('header').innerHTML = str;
     //};
     var addHdItem = function(){
+        console.log("addHdItem called")
         $("#hdBtnClear").on('click',function(){
             //$("#hdItems")[0].textContent = "";
             var aa = $("#hdItems");
@@ -19,4 +21,5 @@ $(function(){
             //console.log(aa[0].children["1"]);
         });
     }
-});
+//});
+//}

@@ -1,4 +1,4 @@
-var aaa = require( "./hdPane" );
+//var aaa = require( "./hdPane" );
 
 var kenriPanel = function() {
     console.log("kenriPanel in init.js called");
@@ -57,7 +57,7 @@ var getKumi = function(){ $('#content').on('click','.tbl',
         var s_text = $this.target.innerText;
         var sho_code = s_text.split(" : ")[1];
         addHdItem();
-        //hdPane_sho(s_text);
+        hdPane_sho(s_text);
         $('#content').load('./sho_kumi?owner=' + sho_code);
         $(".mainfooter").load("./aaabbb?shoCd="+ sho_code);
         //console.log("kensaku_name_clicked");
