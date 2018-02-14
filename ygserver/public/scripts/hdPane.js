@@ -14,7 +14,8 @@ var hdPane_hide = function(){
 $(hdPane_hide);
 
 $("#hdBtnCreate").on('click',function($this){
-    var str = $("#hdItems")[0].innerText;
+    //var str = $("#hdItems")[0].innerText;
+    var str = $("#hdItems")[0].children[1];
     console.log(str);
 });
 
