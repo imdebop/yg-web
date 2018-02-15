@@ -25,10 +25,11 @@ var kenriPanel = function() {
     });
 
 
-    getKumi();
+    //getKumi();
 }
 
 $(kenriPanel);
+$(getKumi);
 
 //$(function() {
 //    $('#content').load('./content_top');
@@ -83,12 +84,7 @@ $(function(){
 
     $('#menuJuzen').on('click',function(){
         $('#opPanel').load('panel_juzen',function(e){
-            //$('#horyu_list').on('click','.gaiku', function ($this){
-                //console.log($this)
-            //    s_text = $this.target.innerText;
-                //console.log(s_text);
-            //    horyu_sub(s_text);
-            //});
+
             $('.panelAza').on('click',function(e){
                 var azaCd;
                 azaCd = e.target.attributes.value.value;

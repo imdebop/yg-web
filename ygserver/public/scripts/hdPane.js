@@ -44,7 +44,7 @@ var getKumi = function(){ $('#content').on('click','.tbl',
         //hdPane_sho(s_text);
         $('#content').load('./sho_kumi?owner=' + sho_code);
         $(".mainfooter").load("./aaabbb?shoCd="+ sho_code);
-        //console.log("kensaku_name_clicked");
     });
+    console.log("getKumi registered");
 }
 
