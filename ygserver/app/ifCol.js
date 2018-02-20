@@ -52,6 +52,7 @@ module.exports = {
     test: function(){
         setTimeout(test, 500);
     }(),
+    getH_kanci: db.h_kanchi,
 
 
 }

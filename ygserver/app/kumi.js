@@ -6,6 +6,7 @@ var kumiEdit = require('../app/kumi_edit');
 var h_juzen = kanriDB.h_juzen();
 //var h_kanchi = kanriDB.h_kanchi();
 var h_kumi = kanriDB.h_kumi();
+var h_kanchi = kanriDB.h_kanchi;
 
 
 module.exports = {
