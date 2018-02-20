@@ -16,6 +16,7 @@ var test = function(){
     console.log(module.exports.get.shoCd);
 }
 
+var h_kanchi;
 
 var colTbl;
 var initTbl = function(tblName){
@@ -53,6 +54,7 @@ module.exports = {
         setTimeout(test, 500);
     }(),
     getH_kanci: db.h_kanchi,
+    h_kanchi: h_kanchi
 
 
 }
