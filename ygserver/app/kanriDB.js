@@ -1,4 +1,5 @@
 var async = require('async');
+var kan = require ('../app/ifKanchi');
 
 console.log( "*** kanriDB.js は開発中のため毎回読み込まれています." );
 
@@ -92,6 +93,7 @@ module.exports = {
     return h_kumi;
   },
 
+  kan: kan,
 
 
 };

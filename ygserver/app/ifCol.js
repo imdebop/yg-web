@@ -50,9 +50,9 @@ module.exports = {
     setCD: setCD,
     get: get,
     getAr: getAr,
-    test: function(){
-        setTimeout(test, 500);
-    }(),
+    //test: function(){
+    //    setTimeout(test, 500);
+    //}(),
     getH_kanci: db.h_kanchi,
     h_kanchi: h_kanchi
 

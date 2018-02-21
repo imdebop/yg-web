@@ -1,5 +1,5 @@
 //var kanriDB = require('../app/kanriDB');
-var ifk = require('../app/ifKanchi');
+//var ifk = require('../app/ifKanchi');
 
 module.exports = {
     get: function(h_kanchi, kan_code){
