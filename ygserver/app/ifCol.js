@@ -1,7 +1,7 @@
 var async = require('async');
 var yaml = require('js-yaml');
 var fs = require('fs');
-var db = require('../app/kanriDB');
+//var db = require('../app/kanriDB');
 
 var doc = yaml.safeLoad(fs.readFileSync('app/kanri_tbl.yaml'));
 
@@ -26,7 +26,7 @@ var initTbl = function(tblName){
 var get = {};
 var arrData;
 var setCD = function(cd){
-    let data = db.h_kanchi[cd];
+    let data = kanriDB.h_kanchi[cd];
     arrData = data.split("|");
     let colKeys = Object.keys(colTbl);
     let colSize = colKeys.length;
@@ -45,7 +45,7 @@ var getAr = function(cname, n){
 }
 
 module.exports = {
-    db: db,
+    //db: db,
     initTbl: initTbl,
     setCD: setCD,
     get: get,
@@ -53,7 +53,7 @@ module.exports = {
     //test: function(){
     //    setTimeout(test, 500);
     //}(),
-    getH_kanci: db.h_kanchi,
+    //getH_kanci: kanriDB.h_kanchi,
     h_kanchi: h_kanchi
 
 

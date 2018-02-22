@@ -1,4 +1,4 @@
-var kanriDB = require('../app/kanriDB');
+//var kanriDB = require('../app/kanriDB');
 var kanchi_edit = require('../app/kanchi_edit');
 var shoList = require('../app/shoList');
 
